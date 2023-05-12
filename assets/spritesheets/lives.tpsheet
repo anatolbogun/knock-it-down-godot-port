@@ -1,0 +1,48 @@
+{
+	"textures": [
+		{
+			"image": "lives.png",
+			"size": {
+				"w": 94,
+				"h": 45
+			},
+			"sprites": [
+				{
+					"filename": "life",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 46,
+						"h": 43
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "death",
+					"region": {
+						"x": 49,
+						"y": 1,
+						"w": 44,
+						"h": 42
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:6cc1ecccef381c68fbfb6c2252015c68:1b7fb3516282b321ed0040db2f97a40c:36fa5133ad0501dcf84b929529a66f35$"
+	}
+}

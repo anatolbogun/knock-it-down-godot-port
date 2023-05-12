@@ -1,0 +1,318 @@
+{
+	"textures": [
+		{
+			"image": "common.png",
+			"size": {
+				"w": 971,
+				"h": 912
+			},
+			"sprites": [
+				{
+					"filename": "blue_bg",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 743,
+						"h": 322
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "keep_trying",
+					"region": {
+						"x": 1,
+						"y": 325,
+						"w": 688,
+						"h": 146
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gem_shine",
+					"region": {
+						"x": 691,
+						"y": 325,
+						"w": 279,
+						"h": 277
+					},
+					"margin": {
+						"x": 9,
+						"y": 8,
+						"w": 15,
+						"h": 18
+					}
+				},
+				{
+					"filename": "starburst",
+					"region": {
+						"x": 746,
+						"y": 1,
+						"w": 95,
+						"h": 120
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pink_gem",
+					"region": {
+						"x": 746,
+						"y": 123,
+						"w": 114,
+						"h": 111
+					},
+					"margin": {
+						"x": 1,
+						"y": 1,
+						"w": 6,
+						"h": 5
+					}
+				},
+				{
+					"filename": "buttonReplay",
+					"region": {
+						"x": 843,
+						"y": 1,
+						"w": 107,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buttonReplayDown",
+					"region": {
+						"x": 862,
+						"y": 115,
+						"w": 107,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "blue_gem",
+					"region": {
+						"x": 862,
+						"y": 229,
+						"w": 98,
+						"h": 93
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buttonBack",
+					"region": {
+						"x": 746,
+						"y": 236,
+						"w": 60,
+						"h": 60
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "counter_dot_1",
+					"region": {
+						"x": 808,
+						"y": 236,
+						"w": 33,
+						"h": 33
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "counter_dot_2",
+					"region": {
+						"x": 808,
+						"y": 271,
+						"w": 33,
+						"h": 33
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "well_done",
+					"region": {
+						"x": 1,
+						"y": 473,
+						"w": 593,
+						"h": 134
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buttonStart",
+					"region": {
+						"x": 596,
+						"y": 604,
+						"w": 349,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 1
+					}
+				},
+				{
+					"filename": "counter_dot_3",
+					"region": {
+						"x": 596,
+						"y": 473,
+						"w": 33,
+						"h": 33
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buttonStartDown",
+					"region": {
+						"x": 1,
+						"y": 609,
+						"w": 349,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 1
+					}
+				},
+				{
+					"filename": "buttonPlay",
+					"region": {
+						"x": 352,
+						"y": 609,
+						"w": 106,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buttonPlayDown",
+					"region": {
+						"x": 352,
+						"y": 723,
+						"w": 106,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buttonHowTo",
+					"region": {
+						"x": 1,
+						"y": 761,
+						"w": 348,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 1
+					}
+				},
+				{
+					"filename": "buttonHowToDown",
+					"region": {
+						"x": 460,
+						"y": 756,
+						"w": 348,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 3,
+						"h": 1
+					}
+				},
+				{
+					"filename": "green_gem",
+					"region": {
+						"x": 460,
+						"y": 609,
+						"w": 94,
+						"h": 90
+					},
+					"margin": {
+						"x": 0,
+						"y": 1,
+						"w": 4,
+						"h": 4
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:03c878f4be4240e4f9c69d99f89f4b6a:124a21d88f92d6b9a83161fb9186be46:0f89ce481a20e4a5527810f3d83d1c61$"
+	}
+}

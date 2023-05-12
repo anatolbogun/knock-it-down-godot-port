@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cibafvk5wl010"]
+
+[ext_resource type="Texture2D" uid="uid://prqbwq7t1we4" path="res://assets/spritesheets/furball_purple.png" id="1_hdks2"]
+
+[resource]
+atlas = ExtResource("1_hdks2")
+region = Rect2(1, 1, 172, 164)

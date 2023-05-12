@@ -1,0 +1,168 @@
+{
+	"textures": [
+		{
+			"image": "assets.png",
+			"size": {
+				"w": 952,
+				"h": 494
+			},
+			"sprites": [
+				{
+					"filename": "snowCover",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 416,
+						"h": 382
+					},
+					"margin": {
+						"x": 475,
+						"y": 193,
+						"w": 950,
+						"h": 386
+					}
+				},
+				{
+					"filename": "cloud",
+					"region": {
+						"x": 1,
+						"y": 385,
+						"w": 300,
+						"h": 108
+					},
+					"margin": {
+						"x": 533,
+						"y": 330,
+						"w": 1066,
+						"h": 660
+					}
+				},
+				{
+					"filename": "snowCoverFalling",
+					"region": {
+						"x": 419,
+						"y": 1,
+						"w": 197,
+						"h": 460
+					},
+					"margin": {
+						"x": 585,
+						"y": 154,
+						"w": 1169,
+						"h": 308
+					}
+				},
+				{
+					"filename": "tree",
+					"region": {
+						"x": 618,
+						"y": 1,
+						"w": 128,
+						"h": 314
+					},
+					"margin": {
+						"x": 619,
+						"y": 227,
+						"w": 1238,
+						"h": 454
+					}
+				},
+				{
+					"filename": "iceShadow",
+					"region": {
+						"x": 748,
+						"y": 1,
+						"w": 203,
+						"h": 96
+					},
+					"margin": {
+						"x": 580,
+						"y": 335,
+						"w": 1163,
+						"h": 672
+					}
+				},
+				{
+					"filename": "iceBlock",
+					"region": {
+						"x": 748,
+						"y": 99,
+						"w": 150,
+						"h": 148
+					},
+					"margin": {
+						"x": 608,
+						"y": 310,
+						"w": 1216,
+						"h": 620
+					}
+				},
+				{
+					"filename": "iceBlockDestroyed",
+					"region": {
+						"x": 618,
+						"y": 317,
+						"w": 150,
+						"h": 148
+					},
+					"margin": {
+						"x": 608,
+						"y": 310,
+						"w": 1216,
+						"h": 620
+					}
+				},
+				{
+					"filename": "wreckingBall",
+					"region": {
+						"x": 303,
+						"y": 385,
+						"w": 99,
+						"h": 93
+					},
+					"margin": {
+						"x": 634,
+						"y": 338,
+						"w": 1267,
+						"h": 675
+					}
+				},
+				{
+					"filename": "buttonAudio",
+					"region": {
+						"x": 770,
+						"y": 249,
+						"w": 110,
+						"h": 115
+					},
+					"margin": {
+						"x": 628,
+						"y": 327,
+						"w": 1256,
+						"h": 653
+					}
+				},
+				{
+					"filename": "buttonAudioDown",
+					"region": {
+						"x": 770,
+						"y": 366,
+						"w": 110,
+						"h": 110
+					},
+					"margin": {
+						"x": 628,
+						"y": 332,
+						"w": 1256,
+						"h": 658
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:1514acd39b5afc10226c194611d74642:106e45dc8bece92f29075885065e395a:899dcc9e157d9aa22098b6e545c2ac15$"
+	}
+}

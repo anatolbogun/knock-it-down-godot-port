@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://b0dbl7k4lrhmm"
+path="res://.godot/imported/yeti.tpsheet-28f6125b5f4f4dc7bb23fe1fe91e6d26.res"
+
+[deps]
+
+files=["res://assets/spritesheets/yeti.sprites/craneBody.tres", "res://assets/spritesheets/yeti.sprites/craneBoom.tres", "res://assets/spritesheets/yeti.sprites/craneWheels.tres", "res://assets/spritesheets/yeti.sprites/craneRope.tres", "res://assets/spritesheets/yeti.sprites/craneShadow.tres", "res://assets/spritesheets/yeti.sprites/craneWreckingBall.tres", "res://assets/spritesheets/yeti.sprites/yetiArm.tres", "res://assets/spritesheets/yeti.sprites/yetiHead.tres", "res://assets/spritesheets/yeti.sprites/yetiLeg.tres", "res://assets/spritesheets/yeti.sprites/yetiArmRight.tres", "res://assets/spritesheets/yeti.sprites/yetiBody.tres", "res://assets/spritesheets/yeti.sprites/yetiHeadSad.tres"]
+
+source_file="res://assets/spritesheets/yeti.tpsheet"
+dest_files=["res://.godot/imported/yeti.tpsheet-28f6125b5f4f4dc7bb23fe1fe91e6d26.res", "res://assets/spritesheets/yeti.sprites/craneBody.tres", "res://assets/spritesheets/yeti.sprites/craneBoom.tres", "res://assets/spritesheets/yeti.sprites/craneWheels.tres", "res://assets/spritesheets/yeti.sprites/craneRope.tres", "res://assets/spritesheets/yeti.sprites/craneShadow.tres", "res://assets/spritesheets/yeti.sprites/craneWreckingBall.tres", "res://assets/spritesheets/yeti.sprites/yetiArm.tres", "res://assets/spritesheets/yeti.sprites/yetiHead.tres", "res://assets/spritesheets/yeti.sprites/yetiLeg.tres", "res://assets/spritesheets/yeti.sprites/yetiArmRight.tres", "res://assets/spritesheets/yeti.sprites/yetiBody.tres", "res://assets/spritesheets/yeti.sprites/yetiHeadSad.tres"]
+
+[params]
+

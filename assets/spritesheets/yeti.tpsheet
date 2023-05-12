@@ -1,0 +1,198 @@
+{
+	"textures": [
+		{
+			"image": "yeti.png",
+			"size": {
+				"w": 250,
+				"h": 648
+			},
+			"sprites": [
+				{
+					"filename": "craneBody",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 206,
+						"h": 243
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "craneBoom",
+					"region": {
+						"x": 1,
+						"y": 246,
+						"w": 208,
+						"h": 156
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "craneWheels",
+					"region": {
+						"x": 1,
+						"y": 404,
+						"w": 199,
+						"h": 90
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "craneRope",
+					"region": {
+						"x": 209,
+						"y": 1,
+						"w": 4,
+						"h": 220
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "craneShadow",
+					"region": {
+						"x": 1,
+						"y": 496,
+						"w": 241,
+						"h": 24
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "craneWreckingBall",
+					"region": {
+						"x": 1,
+						"y": 522,
+						"w": 96,
+						"h": 91
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "yetiArm",
+					"region": {
+						"x": 1,
+						"y": 615,
+						"w": 87,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "yetiHead",
+					"region": {
+						"x": 202,
+						"y": 404,
+						"w": 47,
+						"h": 68
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "yetiLeg",
+					"region": {
+						"x": 99,
+						"y": 522,
+						"w": 74,
+						"h": 58
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "yetiArmRight",
+					"region": {
+						"x": 175,
+						"y": 522,
+						"w": 65,
+						"h": 46
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "yetiBody",
+					"region": {
+						"x": 99,
+						"y": 582,
+						"w": 47,
+						"h": 60
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "yetiHeadSad",
+					"region": {
+						"x": 175,
+						"y": 570,
+						"w": 48,
+						"h": 68
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:95198c54c8b2acd10be4558a092ab91f:f86cbda8431057b85e57892eaaf689ae:9d1d605213ef945583ad3c4c55aefddb$"
+	}
+}

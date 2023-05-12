@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d0shfu0yc0o34"]
+
+[ext_resource type="Texture2D" uid="uid://c7nt6knoloqo1" path="res://assets/spritesheets/yeti.png" id="1_3i26o"]
+
+[resource]
+atlas = ExtResource("1_3i26o")
+region = Rect2(202, 404, 47, 68)

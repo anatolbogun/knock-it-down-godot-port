@@ -1,0 +1,138 @@
+{
+	"textures": [
+		{
+			"image": "furball_purple.png",
+			"size": {
+				"w": 455,
+				"h": 166
+			},
+			"sprites": [
+				{
+					"filename": "body",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 172,
+						"h": 164
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tail",
+					"region": {
+						"x": 175,
+						"y": 1,
+						"w": 116,
+						"h": 96
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "earLeft",
+					"region": {
+						"x": 293,
+						"y": 1,
+						"w": 45,
+						"h": 96
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "mouth",
+					"region": {
+						"x": 340,
+						"y": 1,
+						"w": 114,
+						"h": 79
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "earRight",
+					"region": {
+						"x": 340,
+						"y": 82,
+						"w": 61,
+						"h": 67
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "mouthSmile",
+					"region": {
+						"x": 175,
+						"y": 99,
+						"w": 100,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eyes",
+					"region": {
+						"x": 277,
+						"y": 99,
+						"w": 44,
+						"h": 37
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tongue",
+					"region": {
+						"x": 277,
+						"y": 138,
+						"w": 32,
+						"h": 21
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:f861d8e1d4e7d0ca1c74e94a7dbf9870:6248d996561ad3f69b1baf3e2f2ed492:11482cfde369e7df6b95d68b57d7e3c9$"
+	}
+}

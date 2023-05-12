@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://drqfpmca54enl"
+path="res://.godot/imported/furball_green.tpsheet-cd4f0795fa488452f171f9b5065c3fad.res"
+
+[deps]
+
+files=["res://assets/spritesheets/furball_green.sprites/body.tres", "res://assets/spritesheets/furball_green.sprites/tail.tres", "res://assets/spritesheets/furball_green.sprites/earLeft.tres", "res://assets/spritesheets/furball_green.sprites/mouth.tres", "res://assets/spritesheets/furball_green.sprites/earRight.tres", "res://assets/spritesheets/furball_green.sprites/mouthSmile.tres", "res://assets/spritesheets/furball_green.sprites/eyes.tres", "res://assets/spritesheets/furball_green.sprites/tongue.tres"]
+
+source_file="res://assets/spritesheets/furball_green.tpsheet"
+dest_files=["res://.godot/imported/furball_green.tpsheet-cd4f0795fa488452f171f9b5065c3fad.res", "res://assets/spritesheets/furball_green.sprites/body.tres", "res://assets/spritesheets/furball_green.sprites/tail.tres", "res://assets/spritesheets/furball_green.sprites/earLeft.tres", "res://assets/spritesheets/furball_green.sprites/mouth.tres", "res://assets/spritesheets/furball_green.sprites/earRight.tres", "res://assets/spritesheets/furball_green.sprites/mouthSmile.tres", "res://assets/spritesheets/furball_green.sprites/eyes.tres", "res://assets/spritesheets/furball_green.sprites/tongue.tres"]
+
+[params]
+

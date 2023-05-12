@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://b4kbnysnhat7o"
+path="res://.godot/imported/assets.tpsheet-50d83d3db298c4ac5be4a12fe8ea7b0a.res"
+
+[deps]
+
+files=["res://assets/spritesheets/assets.sprites/snowCover.tres", "res://assets/spritesheets/assets.sprites/cloud.tres", "res://assets/spritesheets/assets.sprites/snowCoverFalling.tres", "res://assets/spritesheets/assets.sprites/tree.tres", "res://assets/spritesheets/assets.sprites/iceShadow.tres", "res://assets/spritesheets/assets.sprites/iceBlock.tres", "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres", "res://assets/spritesheets/assets.sprites/wreckingBall.tres", "res://assets/spritesheets/assets.sprites/buttonAudio.tres", "res://assets/spritesheets/assets.sprites/buttonAudioDown.tres"]
+
+source_file="res://assets/spritesheets/assets.tpsheet"
+dest_files=["res://.godot/imported/assets.tpsheet-50d83d3db298c4ac5be4a12fe8ea7b0a.res", "res://assets/spritesheets/assets.sprites/snowCover.tres", "res://assets/spritesheets/assets.sprites/cloud.tres", "res://assets/spritesheets/assets.sprites/snowCoverFalling.tres", "res://assets/spritesheets/assets.sprites/tree.tres", "res://assets/spritesheets/assets.sprites/iceShadow.tres", "res://assets/spritesheets/assets.sprites/iceBlock.tres", "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres", "res://assets/spritesheets/assets.sprites/wreckingBall.tres", "res://assets/spritesheets/assets.sprites/buttonAudio.tres", "res://assets/spritesheets/assets.sprites/buttonAudioDown.tres"]
+
+[params]
+

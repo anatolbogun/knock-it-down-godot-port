@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://mbnuqo7jqpfu"
+path="res://.godot/imported/lives.tpsheet-ce8d51d2abca66bb7e386a67c0faac12.res"
+
+[deps]
+
+files=["res://assets/spritesheets/lives.sprites/life.tres", "res://assets/spritesheets/lives.sprites/death.tres"]
+
+source_file="res://assets/spritesheets/lives.tpsheet"
+dest_files=["res://.godot/imported/lives.tpsheet-ce8d51d2abca66bb7e386a67c0faac12.res", "res://assets/spritesheets/lives.sprites/life.tres", "res://assets/spritesheets/lives.sprites/death.tres"]
+
+[params]
+

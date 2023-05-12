@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://b86qiqw1aghpg"
+path="res://.godot/imported/common.tpsheet-e5488f7d4a276c94ca5e1ac78d584559.res"
+
+[deps]
+
+files=["res://assets/spritesheets/common.sprites/blue_bg.tres", "res://assets/spritesheets/common.sprites/keep_trying.tres", "res://assets/spritesheets/common.sprites/gem_shine.tres", "res://assets/spritesheets/common.sprites/starburst.tres", "res://assets/spritesheets/common.sprites/pink_gem.tres", "res://assets/spritesheets/common.sprites/buttonReplay.tres", "res://assets/spritesheets/common.sprites/buttonReplayDown.tres", "res://assets/spritesheets/common.sprites/blue_gem.tres", "res://assets/spritesheets/common.sprites/buttonBack.tres", "res://assets/spritesheets/common.sprites/counter_dot_1.tres", "res://assets/spritesheets/common.sprites/counter_dot_2.tres", "res://assets/spritesheets/common.sprites/well_done.tres", "res://assets/spritesheets/common.sprites/buttonStart.tres", "res://assets/spritesheets/common.sprites/counter_dot_3.tres", "res://assets/spritesheets/common.sprites/buttonStartDown.tres", "res://assets/spritesheets/common.sprites/buttonPlay.tres", "res://assets/spritesheets/common.sprites/buttonPlayDown.tres", "res://assets/spritesheets/common.sprites/buttonHowTo.tres", "res://assets/spritesheets/common.sprites/buttonHowToDown.tres", "res://assets/spritesheets/common.sprites/green_gem.tres"]
+
+source_file="res://assets/spritesheets/common.tpsheet"
+dest_files=["res://.godot/imported/common.tpsheet-e5488f7d4a276c94ca5e1ac78d584559.res", "res://assets/spritesheets/common.sprites/blue_bg.tres", "res://assets/spritesheets/common.sprites/keep_trying.tres", "res://assets/spritesheets/common.sprites/gem_shine.tres", "res://assets/spritesheets/common.sprites/starburst.tres", "res://assets/spritesheets/common.sprites/pink_gem.tres", "res://assets/spritesheets/common.sprites/buttonReplay.tres", "res://assets/spritesheets/common.sprites/buttonReplayDown.tres", "res://assets/spritesheets/common.sprites/blue_gem.tres", "res://assets/spritesheets/common.sprites/buttonBack.tres", "res://assets/spritesheets/common.sprites/counter_dot_1.tres", "res://assets/spritesheets/common.sprites/counter_dot_2.tres", "res://assets/spritesheets/common.sprites/well_done.tres", "res://assets/spritesheets/common.sprites/buttonStart.tres", "res://assets/spritesheets/common.sprites/counter_dot_3.tres", "res://assets/spritesheets/common.sprites/buttonStartDown.tres", "res://assets/spritesheets/common.sprites/buttonPlay.tres", "res://assets/spritesheets/common.sprites/buttonPlayDown.tres", "res://assets/spritesheets/common.sprites/buttonHowTo.tres", "res://assets/spritesheets/common.sprites/buttonHowToDown.tres", "res://assets/spritesheets/common.sprites/green_gem.tres"]
+
+[params]
+
