@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=8 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
 [ext_resource type="Texture2D" uid="uid://c0ddvcvytxmat" path="res://assets/images/landscape.png" id="2_eocjk"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
-[ext_resource type="Script" path="res://src/actors/BackButton.gd" id="4_vjtbf"]
+[ext_resource type="Script" path="res://src/actors/HoverButton.gd" id="4_183qp"]
+[ext_resource type="Texture2D" uid="uid://cq0pp8rdi8un3" path="res://assets/spritesheets/common.sprites/buttonReplay.tres" id="5_ih820"]
+[ext_resource type="Texture2D" uid="uid://oviovqe2jg6p" path="res://assets/spritesheets/common.sprites/buttonReplayDown.tres" id="6_0sw8o"]
+[ext_resource type="Texture2D" uid="uid://dg2ducnan3grv" path="res://assets/spritesheets/common.sprites/counter_dot_2.tres" id="7_p7qtp"]
 
 [node name="MainGameState" type="Node2D"]
 
@@ -22,6 +25,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1366.0
+offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -30,6 +35,63 @@ size_flags_horizontal = 4
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_33gha")
-script = ExtResource("4_vjtbf")
+script = ExtResource("4_183qp")
+center_pivot = false
+hover_scale = 1.5
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 50.0
+offset_right = 1007.0
+offset_bottom = 162.0
+texture_normal = ExtResource("5_ih820")
+texture_pressed = ExtResource("6_0sw8o")
+script = ExtResource("4_183qp")
+
+[node name="Rounds" type="HFlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 80.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="Round1" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round2" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round3" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round4" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round5" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round6" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round7" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round8" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
+
+[node name="Round9" type="TextureRect" parent="Control/Rounds"]
+layout_mode = 2
+texture = ExtResource("7_p7qtp")
