@@ -24,7 +24,7 @@ func _enter_tree() -> void:
 		add_child(_round)
 
 func _all_completed() -> void:
-	print("ALL ROUNDS COMPLETED")
+	print("ALL ROUNDS COMPLETED") # TEMP DEV: remove this
 	all_completed.emit(
 		get_child_count(),
 		get_children().filter(func (child:Node) -> bool: return child.get_meta("status") == STATUS_PASSED).size(),
@@ -32,26 +32,26 @@ func _all_completed() -> void:
 	)
 
 func next_round(passed:bool) -> void:
-	var incompleteRounds: = get_children().filter(
+	var incompleteRounds:Array[TextureRect] = get_children().filter(
 		func (child:Node) -> bool: return child.get_meta("status") == STATUS_INCOMPLETE
-	)
+	) as Array[TextureRect]
 
 	if (incompleteRounds.is_empty()):
 		return
 
-	var _round = incompleteRounds[0]
+	var _round: = incompleteRounds[0]
 
 	if (passed):
 		_round.set_meta("status", STATUS_PASSED)
-		_round.texture = load(roundPassTexture)
+		_round.texture = load(roundPassTexture) as Texture2D
 	else:
 		_round.set_meta("status", STATUS_FAILED)
-		_round.texture = load(roundTexture)
+		_round.texture = load(roundTexture) as Texture2D
 
 	round_completed.emit(passed)
 
 	if (incompleteRounds.size() > 1):
-		incompleteRounds[1].texture = load(roundCurrentTexture)
+		incompleteRounds[1].texture = load(roundCurrentTexture) as Texture2D
 	else:
 		_all_completed()
 
