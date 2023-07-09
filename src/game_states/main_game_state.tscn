@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=10 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
 [ext_resource type="Texture2D" uid="uid://c0ddvcvytxmat" path="res://assets/images/landscape.png" id="2_eocjk"]
@@ -6,8 +6,9 @@
 [ext_resource type="Script" path="res://src/actors/HoverButton.gd" id="4_183qp"]
 [ext_resource type="Texture2D" uid="uid://cyra0owm460tb" path="res://assets/spritesheets/assets.sprites/buttonAudio.tres" id="5_47i7q"]
 [ext_resource type="Texture2D" uid="uid://cbwung2jha00r" path="res://assets/spritesheets/assets.sprites/buttonAudioDown.tres" id="6_2nnj2"]
-[ext_resource type="Texture2D" uid="uid://dg2ducnan3grv" path="res://assets/spritesheets/common.sprites/counter_dot_2.tres" id="7_p7qtp"]
+[ext_resource type="PackedScene" uid="uid://cbi4jcb5fpp27" path="res://src/actors/rounds.tscn" id="7_0u8r4"]
 [ext_resource type="Texture2D" uid="uid://crsgclfle4ss5" path="res://assets/spritesheets/lives.sprites/life.tres" id="8_g4pux"]
+[ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
 
 [node name="MainGameState" type="Node2D"]
 
@@ -34,11 +35,12 @@ size_flags_horizontal = 4
 
 [node name="BackButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 84.0
+offset_bottom = 84.0
 texture_normal = ExtResource("3_33gha")
 script = ExtResource("4_183qp")
-center_pivot = false
 hover_scale = 1.5
 
 [node name="TextureButton" type="TextureButton" parent="Control"]
@@ -51,51 +53,19 @@ texture_normal = ExtResource("5_47i7q")
 texture_pressed = ExtResource("6_2nnj2")
 script = ExtResource("4_183qp")
 
-[node name="Rounds" type="HFlowContainer" parent="Control"]
+[node name="Rounds" parent="Control" instance=ExtResource("7_0u8r4")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 80.0
+offset_left = -208.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 88.0
 grow_horizontal = 0
-alignment = 1
-
-[node name="Round1" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round2" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round3" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round4" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round5" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round6" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round7" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round8" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
-
-[node name="Round9" type="TextureRect" parent="Control/Rounds"]
-layout_mode = 2
-texture = ExtResource("7_p7qtp")
+numRounds = 9
+roundCurrentTexture = "res://assets/spritesheets/common.sprites/counter_dot_3.tres"
+roundPassTexture = "res://assets/spritesheets/common.sprites/counter_dot_1.tres"
 
 [node name="Lives" type="HFlowContainer" parent="Control"]
 layout_mode = 1
@@ -121,3 +91,9 @@ texture = ExtResource("8_g4pux")
 [node name="Life3" type="TextureRect" parent="Control/Lives"]
 layout_mode = 2
 texture = ExtResource("8_g4pux")
+
+[node name="Smoother" type="Node" parent="."]
+script = ExtResource("9_fsder")
+
+[connection signal="pressed" from="Control/BackButton" to="Control/Rounds" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/TextureButton" to="Control/Rounds" method="_on_texture_button_pressed"]

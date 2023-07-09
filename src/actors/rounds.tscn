@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbi4jcb5fpp27"]
+
+[ext_resource type="Script" path="res://src/actors/rounds.gd" id="1_jfetc"]
+
+[node name="Rounds" type="HFlowContainer"]
+offset_right = 200.0
+offset_bottom = 80.0
+alignment = 1
+script = ExtResource("1_jfetc")
+roundTexture = "res://assets/spritesheets/common.sprites/counter_dot_2.tres"
