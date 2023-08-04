@@ -22,7 +22,7 @@ var currentRound:int :
 			func (child:Node) -> bool: return child.get_meta("status") == STATUS_INCOMPLETE
 		) as Array[Node]
 
-		if (incompleteRounds.is_empty()):
+		if incompleteRounds.is_empty():
 			return -1
 
 		return get_children().find(incompleteRounds.front())
@@ -59,12 +59,12 @@ func next_round(passed:bool) -> void:
 		func (child:Node) -> bool: return child.get_meta("status") == STATUS_INCOMPLETE
 	) as Array[Node]
 
-	if (incompleteRounds.is_empty()):
+	if incompleteRounds.is_empty():
 		return
 
 	var _round: = incompleteRounds.front() as TextureRect
 
-	if (passed):
+	if passed:
 		_round.set_meta("status", STATUS_PASSED)
 		_round.texture = load(roundPassTexture) as Texture2D
 	else:
@@ -73,7 +73,7 @@ func next_round(passed:bool) -> void:
 
 	round_completed.emit(passed)
 
-	if (incompleteRounds.size() > 1):
+	if incompleteRounds.size() > 1:
 		incompleteRounds[1].texture = load(roundCurrentTexture) as Texture2D
 	else:
 		_all_completed()

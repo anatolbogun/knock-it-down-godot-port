@@ -57,7 +57,7 @@ func add_life() -> void:
 
 	var _life:TextureRect
 
-	if (deadLives.is_empty()):
+	if deadLives.is_empty():
 		_life = TextureRect.new()
 		add_child(_life)
 	else:
@@ -74,7 +74,7 @@ func remove_life() -> void:
 		func (child:Node) -> bool: return child.get_meta("status") == STATUS_ALIVE
 	) as Array[Node]
 
-	if (aliveLives.is_empty()):
+	if aliveLives.is_empty():
 		return
 
 	var _life: = aliveLives.back() as Node
@@ -83,5 +83,5 @@ func remove_life() -> void:
 
 	life_removed.emit()
 
-	if (aliveLives.size() <= 1):
+	if aliveLives.size() <= 1:
 		died.emit()

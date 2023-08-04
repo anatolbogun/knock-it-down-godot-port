@@ -30,10 +30,20 @@ func _on_audio_button_pressed() -> void:
 		$AudioStreamPlayer.play()
 
 func _on_words_word_clicked(word:String, button:TextureButton, label:Label) -> void:
+	# CONTINUE HERE: we need a better round counting and only proceed to the next round when the
+	# correct word was selected, but remember if it was selected on the first attempt, otherwise
+	# fail the round
+
+	# Also, handle when you run out of lives.
+
 	if word == target.word:
 		button.disabled = true
 		label.queue_free()
 		next_round()
+		$Control/Rounds.pass_round()
+	else:
+		$Control/Rounds.fail_round()
+		$Control/Lives.remove_life()
 
 func next_round() -> void:
 	var next_word = words.pop_back()
