@@ -1,10 +1,16 @@
+@tool # so that we see the rounds in the editor
+
 extends HFlowContainer
 
 signal all_completed(numTotal:int, numPassed: int, numFailed: int)
 signal round_completed(passed: bool)
 
 
-@export var numRounds:int = 10
+@export var numRounds:int = 10 :
+	set(value):
+		numRounds = value
+		reset()
+
 @export_file() var roundTexture:String
 @export_file() var roundCurrentTexture:String
 @export_file() var roundPassTexture:String
@@ -15,13 +21,8 @@ const STATUS_INCOMPLETE:int = 0
 const STATUS_PASSED:int = 1
 const STATUS_FAILED:int = 2
 
-
 func _enter_tree() -> void:
-	for numRound in numRounds:
-		var _round: = TextureRect.new()
-		_round.set_meta("status", STATUS_INCOMPLETE)
-		_round.texture = load(roundCurrentTexture if numRound == 0 else roundTexture) as Texture2D
-		add_child(_round)
+	reset()
 
 func _all_completed() -> void:
 	print("ALL ROUNDS COMPLETED") # TEMP DEV: remove this
@@ -31,10 +32,20 @@ func _all_completed() -> void:
 		get_children().filter(func (child:Node) -> bool: return child.get_meta("status") == STATUS_FAILED).size(),
 	)
 
+func reset() -> void:
+	for child in get_children():
+		child.queue_free()
+
+	for numRound in numRounds:
+		var _round: = TextureRect.new()
+		_round.set_meta("status", STATUS_INCOMPLETE)
+		_round.texture = load(roundCurrentTexture if numRound == 0 else roundTexture) as Texture2D
+		add_child(_round)
+
 func next_round(passed:bool) -> void:
-	var incompleteRounds:Array[TextureRect] = get_children().filter(
+	var incompleteRounds:Array[Node] = get_children().filter(
 		func (child:Node) -> bool: return child.get_meta("status") == STATUS_INCOMPLETE
-	) as Array[TextureRect]
+	) as Array[Node]
 
 	if (incompleteRounds.is_empty()):
 		return
