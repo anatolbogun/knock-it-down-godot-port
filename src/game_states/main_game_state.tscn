@@ -15,6 +15,8 @@
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_mw4vm")
 centered = false
@@ -46,7 +48,7 @@ texture_normal = ExtResource("3_33gha")
 script = ExtResource("4_183qp")
 hover_scale = 1.5
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
+[node name="AudioButton" type="TextureButton" parent="Control"]
 layout_mode = 0
 offset_left = 845.0
 offset_top = 52.0
@@ -88,8 +90,11 @@ offset_right = 458.0
 offset_bottom = 452.0
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
 texture = "res://assets/spritesheets/assets.sprites/iceBlock.tres"
-correctTexture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
+correct_texture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
 metadata/_edit_use_anchors_ = true
 
 [node name="Smoother" type="Node" parent="."]
 script = ExtResource("9_fsder")
+
+[connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="word_clicked" from="Control/Words" to="." method="_on_words_word_clicked"]

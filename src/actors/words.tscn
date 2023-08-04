@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ex5k7hbpnm5c"]
+[gd_scene load_steps=3 format=3 uid="uid://ex5k7hbpnm5c"]
 
 [ext_resource type="Script" path="res://src/actors/words.gd" id="1_nvaax"]
+[ext_resource type="Theme" uid="uid://dugr7pfmmqfrb" path="res://src/themes/theme.tres" id="3_ericr"]
 
 [node name="Words" type="GridContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("3_ericr")
 columns = 3
 script = ExtResource("1_nvaax")
+correct_texture = null

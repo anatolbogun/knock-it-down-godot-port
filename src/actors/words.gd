@@ -2,20 +2,20 @@
 
 extends GridContainer
 
-signal word_selected(correct: bool)
+signal word_clicked(word:String, button: TextureButton, label: Label)
 
 @export var words: Array[String] :
 	set (value):
-		print(value)
 		words = value
 		reset()
 
-@export var shuffle:bool = true
-@export_file() var texture:String
-@export_file() var correctTexture:String
+@export var shuffle:bool = true :
+	set (value):
+		shuffle = value
+		reset()
 
-const STATUS_INCOMPLETE:int = 0
-const STATUS_PASSED:int = 1
+@export_file() var texture:String
+@export_file() var correct_texture:String
 
 func _enter_tree() -> void:
 	reset()
@@ -33,11 +33,17 @@ func reset() -> void:
 		_words.shuffle()
 
 	for word in _words:
-		var textureRect: = TextureRect.new()
-		textureRect.set_meta("status", STATUS_INCOMPLETE)
-		textureRect.texture = load(texture) as Texture2D
-		add_child(textureRect)
+		var button: = TextureButton.new()
+		button.texture_normal = load(texture) as Texture2D
+		button.texture_disabled = load(correct_texture) as Texture2D
+		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		add_child(button)
 
 		var label: = Label.new()
+		label.set_anchors_preset(Control.PRESET_FULL_RECT)
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label.text = word
-		textureRect.add_child(label)
+		button.add_child(label)
+
+		button.pressed.connect(func () -> void: word_clicked.emit(word, button, label))
