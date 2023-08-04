@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=12 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbi4jcb5fpp27" path="res://src/actors/rounds.tscn" id="7_0u8r4"]
 [ext_resource type="PackedScene" uid="uid://fofvecmcfug7" path="res://src/actors/lives.tscn" id="8_n8msl"]
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
+[ext_resource type="PackedScene" uid="uid://ex5k7hbpnm5c" path="res://src/actors/words.tscn" id="10_chyh8"]
 
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
@@ -47,10 +48,10 @@ hover_scale = 1.5
 
 [node name="TextureButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 965.0
-offset_top = 76.0
-offset_right = 1075.0
-offset_bottom = 191.0
+offset_left = 845.0
+offset_top = 52.0
+offset_right = 955.0
+offset_bottom = 167.0
 texture_normal = ExtResource("5_47i7q")
 texture_pressed = ExtResource("6_2nnj2")
 script = ExtResource("4_183qp")
@@ -60,9 +61,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -216.0
+offset_left = -208.0
 offset_top = 8.0
-offset_right = -16.0
+offset_right = -8.0
 offset_bottom = 88.0
 grow_horizontal = 0
 numRounds = 9
@@ -75,6 +76,20 @@ offset_top = -66.0
 offset_bottom = -16.0
 lifeTexture = "res://assets/spritesheets/lives.sprites/life.tres"
 deathTexture = "res://assets/spritesheets/lives.sprites/death.tres"
+
+[node name="Words" parent="Control" instance=ExtResource("10_chyh8")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216691
+anchor_top = 0.166667
+anchor_right = 0.216691
+anchor_bottom = 0.166667
+offset_right = 458.0
+offset_bottom = 452.0
+words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
+texture = "res://assets/spritesheets/assets.sprites/iceBlock.tres"
+correctTexture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
+metadata/_edit_use_anchors_ = true
 
 [node name="Smoother" type="Node" parent="."]
 script = ExtResource("9_fsder")

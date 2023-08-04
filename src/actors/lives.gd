@@ -1,4 +1,4 @@
-@tool # so that we see the rounds in the editor
+@tool # so that we see the lives in the editor
 
 extends HFlowContainer
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ex5k7hbpnm5c"]
+
+[ext_resource type="Script" path="res://src/actors/words.gd" id="1_nvaax"]
+
+[node name="Words" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+script = ExtResource("1_nvaax")
