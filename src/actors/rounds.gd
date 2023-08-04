@@ -15,7 +15,17 @@ signal round_completed(passed: bool)
 @export_file() var roundCurrentTexture:String
 @export_file() var roundPassTexture:String
 
-var currentRound:int = 1
+## returns the index of the current round (zero-indexed)
+var currentRound:int :
+	get:
+		var incompleteRounds:Array[Node] = get_children().filter(
+			func (child:Node) -> bool: return child.get_meta("status") == STATUS_INCOMPLETE
+		) as Array[Node]
+
+		if (incompleteRounds.is_empty()):
+			return -1
+
+		return get_children().find(incompleteRounds.front())
 
 const STATUS_INCOMPLETE:int = 0
 const STATUS_PASSED:int = 1
@@ -25,7 +35,6 @@ func _enter_tree() -> void:
 	reset()
 
 func _all_completed() -> void:
-	print("ALL ROUNDS COMPLETED") # TEMP DEV: remove this
 	all_completed.emit(
 		get_child_count(),
 		get_children().filter(func (child:Node) -> bool: return child.get_meta("status") == STATUS_PASSED).size(),
@@ -33,6 +42,9 @@ func _all_completed() -> void:
 	)
 
 func reset() -> void:
+	if !is_inside_tree():
+		return
+
 	for child in get_children():
 		child.queue_free()
 
@@ -50,7 +62,7 @@ func next_round(passed:bool) -> void:
 	if (incompleteRounds.is_empty()):
 		return
 
-	var _round: = incompleteRounds[0]
+	var _round: = incompleteRounds.front() as TextureRect
 
 	if (passed):
 		_round.set_meta("status", STATUS_PASSED)
@@ -71,11 +83,3 @@ func pass_round() -> void:
 
 func fail_round() -> void:
 	next_round(false)
-
-# TEMP DEV: just testing the rounds counter
-
-func _on_back_button_pressed() -> void:
-	pass_round()
-
-func _on_texture_button_pressed() -> void:
-	fail_round()
