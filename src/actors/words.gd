@@ -2,6 +2,9 @@
 
 extends GridContainer
 
+# It might be better to change the texture not via the disabled texture because then we can't
+# disable any button without a visual change.
+
 signal word_clicked(word:String, button: TextureButton, label: Label)
 
 @export var words: Array[String] :
@@ -17,6 +20,8 @@ signal word_clicked(word:String, button: TextureButton, label: Label)
 @export_file() var texture:String
 @export_file() var correct_texture:String
 
+var buttons:Array[TextureButton]
+
 func _enter_tree() -> void:
 	reset()
 
@@ -28,6 +33,7 @@ func reset() -> void:
 		child.queue_free()
 
 	var _words = words.duplicate()
+	buttons.clear()
 
 	if shuffle:
 		_words.shuffle()
@@ -47,3 +53,46 @@ func reset() -> void:
 		button.add_child(label)
 
 		button.pressed.connect(func () -> void: word_clicked.emit(word, button, label))
+
+		buttons.push_back(button)
+
+	# store target_position on sort_children signal because earlier the parent GridContainer's
+	# positioning hasn't happened yet (this may run several times which is unnecessary, but should
+	# be negligible)
+	sort_children.connect(
+		func () -> void:
+			for button in buttons:
+				button.set_meta("target_position", button.position)
+
+				if !Engine.is_editor_hint():
+					button.position.y = button.position.y - get_viewport_rect().size.y
+	)
+
+func show_items() -> Tween:
+	var tween: = (
+		create_tween()
+			.set_parallel()
+			.set_ease(Tween.EASE_OUT)
+			.set_trans(Tween.TRANS_BOUNCE)
+	)
+
+	var stagger: = 0.1
+	var i: = 0
+
+	buttons.sort_custom(
+		func (a:TextureButton, b:TextureButton) -> bool:
+			return a.position.y > b.position.y
+	)
+
+	for button in buttons:
+		var target_position = button.get_meta("target_position")
+
+		(
+			tween
+			.tween_property(button, "position", target_position, 1)
+			.set_delay(i * stagger)
+		)
+
+		i += 1
+
+	return tween

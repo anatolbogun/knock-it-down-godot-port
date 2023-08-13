@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=13 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
@@ -12,10 +12,15 @@
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
 [ext_resource type="PackedScene" uid="uid://ex5k7hbpnm5c" path="res://src/actors/words.tscn" id="10_chyh8"]
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6o6bi"]
+
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SFXStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPolyphonic_6o6bi")
+
+[node name="NarratorStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_mw4vm")
