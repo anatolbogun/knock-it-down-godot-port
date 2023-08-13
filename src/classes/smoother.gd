@@ -207,7 +207,7 @@ func _get_physics_process_nodes(node: Node, ignore_node: = false, with_includes:
 	nodes.assign(includes.map(
 		get_node_or_null
 	).filter(
-		func (node:Node) -> bool: return node != null && !excludes.has(get_path_to(node))
+		func (_node:Node) -> bool: return _node != null && !excludes.has(get_path_to(_node))
 	) if with_includes else [])
 
 	if (
