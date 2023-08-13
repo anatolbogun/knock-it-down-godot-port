@@ -28,7 +28,6 @@ func _ready() -> void:
 
 func play_target_audio() -> void:
 	if target:
-		print("PLAY TARGET AUDIO: ", target)
 		$AudioStreamPlayer.stream = target.audio_resource
 		$AudioStreamPlayer.play()
 
