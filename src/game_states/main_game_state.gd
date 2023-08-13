@@ -22,12 +22,18 @@ func _enter_tree() -> void:
 	)
 
 	words.shuffle()
+
+func _ready() -> void:
 	next_round()
 
-func _on_audio_button_pressed() -> void:
+func play_target_audio() -> void:
 	if target:
+		print("PLAY TARGET AUDIO: ", target)
 		$AudioStreamPlayer.stream = target.audio_resource
 		$AudioStreamPlayer.play()
+
+func _on_audio_button_pressed() -> void:
+	play_target_audio()
 
 func _on_words_word_clicked(word:String, button:TextureButton, label:Label) -> void:
 	if word == target.word:
@@ -50,6 +56,8 @@ func next_round() -> void:
 
 	target = next_word
 	print("Target word: ", target.word)
+
+	play_target_audio()
 
 func game_over() -> void:
 	print("Game over")
