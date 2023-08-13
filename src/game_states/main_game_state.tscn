@@ -68,16 +68,17 @@ offset_top = 8.0
 offset_right = -8.0
 offset_bottom = 88.0
 grow_horizontal = 0
-numRounds = 9
-roundCurrentTexture = "res://assets/spritesheets/common.sprites/counter_dot_3.tres"
-roundPassTexture = "res://assets/spritesheets/common.sprites/counter_dot_1.tres"
+num_rounds = 9
+round_texture = "res://assets/spritesheets/common.sprites/counter_dot_2.tres"
+round_current_texture = "res://assets/spritesheets/common.sprites/counter_dot_3.tres"
+round_pass_texture = "res://assets/spritesheets/common.sprites/counter_dot_1.tres"
 
 [node name="Lives" parent="Control" instance=ExtResource("8_n8msl")]
 layout_mode = 1
 offset_top = -66.0
 offset_bottom = -16.0
-lifeTexture = "res://assets/spritesheets/lives.sprites/life.tres"
-deathTexture = "res://assets/spritesheets/lives.sprites/death.tres"
+life_texture = "res://assets/spritesheets/lives.sprites/life.tres"
+death_texture = "res://assets/spritesheets/lives.sprites/death.tres"
 
 [node name="Words" parent="Control" instance=ExtResource("10_chyh8")]
 layout_mode = 1
@@ -88,6 +89,8 @@ anchor_right = 0.216691
 anchor_bottom = 0.166667
 offset_right = 458.0
 offset_bottom = 452.0
+theme_override_constants/h_separation = -5
+theme_override_constants/v_separation = -5
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
 texture = "res://assets/spritesheets/assets.sprites/iceBlock.tres"
 correct_texture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
@@ -97,4 +100,5 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("9_fsder")
 
 [connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="died" from="Control/Lives" to="." method="_on_lives_died"]
 [connection signal="word_clicked" from="Control/Words" to="." method="_on_words_word_clicked"]

@@ -9,4 +9,3 @@ offset_bottom = 40.0
 theme = ExtResource("3_ericr")
 columns = 3
 script = ExtResource("1_nvaax")
-correct_texture = null
