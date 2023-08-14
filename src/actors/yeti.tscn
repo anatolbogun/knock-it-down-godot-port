@@ -28,8 +28,9 @@ position = Vector2(-34, 192)
 texture = ExtResource("9_qauxf")
 
 [node name="CraneWheels" type="Sprite2D" parent="."]
-position = Vector2(-26, 149)
+position = Vector2(-8, 107)
 texture = ExtResource("10_7y8f0")
+offset = Vector2(-18, 42)
 
 [node name="CraneBoom" type="Sprite2D" parent="."]
 position = Vector2(-54, -37)
@@ -49,7 +50,9 @@ position = Vector2(-221, 66)
 texture = ExtResource("11_rgrwk")
 
 [node name="CraneBody" type="Sprite2D" parent="."]
+position = Vector2(-7, 105)
 texture = ExtResource("7_refp6")
+offset = Vector2(7, -105)
 
 [node name="Yeti" type="Node2D" parent="."]
 
@@ -72,11 +75,11 @@ offset = Vector2(0, -29)
 position = Vector2(36, 13)
 
 [node name="HeadSad" type="Sprite2D" parent="Yeti/Head"]
+visible = false
 texture = ExtResource("5_fybnk")
 offset = Vector2(-1, -21)
 
 [node name="HeadHappy" type="Sprite2D" parent="Yeti/Head"]
-position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("4_wqcy7")
 offset = Vector2(-1, -21)
 
