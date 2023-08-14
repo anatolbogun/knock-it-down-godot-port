@@ -20,75 +20,124 @@ _data = {
 "break": SubResource("Animation_f0ly8")
 }
 
-[node name="Yeti" type="Node2D"]
-position = Vector2(27, -189)
+[node name="Yeti" type="Skeleton2D"]
 
-[node name="CraneShadow" type="Sprite2D" parent="."]
-position = Vector2(-34, 192)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojgb1")
+}
+
+[node name="CraneWheelsBone2D" type="Bone2D" parent="."]
+position = Vector2(-8, 107)
+rest = Transform2D(1, 0, 0, 1, -8, 107)
+
+[node name="CraneShadow" type="Sprite2D" parent="CraneWheelsBone2D"]
+position = Vector2(-26, 85)
 texture = ExtResource("9_qauxf")
 
-[node name="CraneWheels" type="Sprite2D" parent="."]
-position = Vector2(-8, 107)
+[node name="CraneWheels" type="Sprite2D" parent="CraneWheelsBone2D"]
 texture = ExtResource("10_7y8f0")
 offset = Vector2(-18, 42)
 
-[node name="CraneBoom" type="Sprite2D" parent="."]
-position = Vector2(-54, -37)
+[node name="CraneBodyBone2D" type="Bone2D" parent="CraneWheelsBone2D"]
+position = Vector2(1, -2)
+rest = Transform2D(1, 0, 0, 1, 1, -2)
+
+[node name="CraneBody" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
+texture = ExtResource("7_refp6")
+offset = Vector2(7, -105)
+
+[node name="YetiBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
+position = Vector2(7, -105)
+rest = Transform2D(1, 0, 0, 1, 7, -105)
+auto_calculate_length_and_angle = false
+length = 46.746
+bone_angle = -72.787
+
+[node name="Yeti" type="Skeleton2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D"]
+
+[node name="BodyBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti"]
+position = Vector2(34, 65)
+rest = Transform2D(1, 0, 0, 1, 34, 65)
+
+[node name="LegBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
+position = Vector2(2, -5)
+rest = Transform2D(1, 0, 0, 1, 2, -5)
+auto_calculate_length_and_angle = false
+length = 49.541
+bone_angle = -163.279
+
+[node name="Leg" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/LegBone2D"]
+texture = ExtResource("6_kxkc0")
+offset = Vector2(-32, 11)
+
+[node name="ArmLeftBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
+position = Vector2(12, -38)
+rest = Transform2D(1, 0, 0, 1, 12, -38)
+auto_calculate_length_and_angle = false
+length = 80.287
+bone_angle = 190.82
+
+[node name="ArmLeft" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmLeftBone2D"]
+texture = ExtResource("1_wgrgd")
+offset = Vector2(-39, -7)
+
+[node name="Body" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
+texture = ExtResource("3_skvwv")
+offset = Vector2(0, -29)
+
+[node name="ArmRightBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
+position = Vector2(5, -41)
+rest = Transform2D(1, 0, 0, 1, 5, -41)
+auto_calculate_length_and_angle = false
+length = 60.721
+bone_angle = 206.557
+
+[node name="ArmRight" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmRightBone2D"]
+texture = ExtResource("2_srefm")
+offset = Vector2(-28, -13)
+
+[node name="HeadBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
+position = Vector2(2, -52)
+rest = Transform2D(1, 0, 0, 1, 2, -52)
+auto_calculate_length_and_angle = false
+length = 46.746
+bone_angle = 283.279
+
+[node name="HeadSad" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D"]
+visible = false
+texture = ExtResource("5_fybnk")
+offset = Vector2(-1, -21)
+
+[node name="HeadHappy" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D"]
+texture = ExtResource("4_wqcy7")
+offset = Vector2(-1, -21)
+
+[node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
+position = Vector2(-47, -142)
+rest = Transform2D(1, 0, 0, 1, -47, -142)
+
+[node name="CraneBoom" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 texture = ExtResource("8_2dxia")
 offset = Vector2(-77, -49)
 
-[node name="CraneLine" type="Line2D" parent="."]
-position = Vector2(-221, -151)
+[node name="CraneLineBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
+position = Vector2(-167, -114)
+rest = Transform2D(1, 0, 0, 1, -167, -114)
+
+[node name="CraneLine" type="Line2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D"]
 points = PackedVector2Array(0, 0, 2.08165e-12, 215)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="CraneWreckingBall" type="Sprite2D" parent="."]
-position = Vector2(-221, 66)
+[node name="CraneWreckingBallBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D"]
+position = Vector2(0, 217)
+rest = Transform2D(1, 0, 0, 1, 0, 217)
+auto_calculate_length_and_angle = false
+length = 38.361
+bone_angle = 88.524
+
+[node name="CraneWreckingBall" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D/CraneWreckingBallBone2D"]
 texture = ExtResource("11_rgrwk")
-
-[node name="CraneBody" type="Sprite2D" parent="."]
-position = Vector2(-7, 105)
-texture = ExtResource("7_refp6")
-offset = Vector2(7, -105)
-
-[node name="Yeti" type="Node2D" parent="."]
-
-[node name="ArmRight" type="Sprite2D" parent="Yeti"]
-position = Vector2(39, 24)
-texture = ExtResource("2_srefm")
-offset = Vector2(-28, -13)
-
-[node name="Leg" type="Sprite2D" parent="Yeti"]
-position = Vector2(36, 60)
-texture = ExtResource("6_kxkc0")
-offset = Vector2(-32, 11)
-
-[node name="Body" type="Sprite2D" parent="Yeti"]
-position = Vector2(34, 65)
-texture = ExtResource("3_skvwv")
-offset = Vector2(0, -29)
-
-[node name="Head" type="Node2D" parent="Yeti"]
-position = Vector2(36, 13)
-
-[node name="HeadSad" type="Sprite2D" parent="Yeti/Head"]
-visible = false
-texture = ExtResource("5_fybnk")
-offset = Vector2(-1, -21)
-
-[node name="HeadHappy" type="Sprite2D" parent="Yeti/Head"]
-texture = ExtResource("4_wqcy7")
-offset = Vector2(-1, -21)
-
-[node name="ArmLeft" type="Sprite2D" parent="Yeti"]
-position = Vector2(46, 27)
-texture = ExtResource("1_wgrgd")
-offset = Vector2(-39, -7)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ojgb1")
-}
