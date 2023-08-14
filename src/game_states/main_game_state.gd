@@ -1,9 +1,12 @@
 extends Node2D
 
-# Note that to reduce load/start times dramatically in Chrome (on Mac OS?), ensure that the
-# use-angle flag is set to "Metal"; chrome://flags/#use-angle . Hopefully, going forward this will
-# become the default graphics backend, and/or Google will fix whatever takes so long with the
-# browser default OpenGL backend.
+# Notes:
+# - To reduce load/start times dramatically in Chrome (on Mac OS?), ensure that the use-angle flag
+#   is set to "Metal"; chrome://flags/#use-angle . Hopefully, going forward this will become the
+#  	default graphics backend, and/or Google will fix whatever takes so long with the browser default
+#   OpenGL backend.
+# - In order to use the project settings display/window/stretch/aspect: expand (which does not clip
+#   the canvas), it's a good idea to add a camera that's centered to the viewport.
 
 @export var narrator_audio_path: = "assets/audio/narrator/"
 @export var narrator_audio_prefix: = "find_the_word_"
