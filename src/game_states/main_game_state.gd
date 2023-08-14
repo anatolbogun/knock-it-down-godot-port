@@ -19,7 +19,7 @@ func _enter_tree() -> void:
 				"res://"
 				+ narrator_audio_path
 				+ narrator_audio_prefix
-				+ word
+				+ word.to_lower()
 				+ narrator_audio_extension
 			),
 		}
