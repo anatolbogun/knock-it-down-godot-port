@@ -31,16 +31,13 @@ texture = ExtResource("9_qauxf")
 position = Vector2(-26, 149)
 texture = ExtResource("10_7y8f0")
 
-[node name="CraneBody" type="Sprite2D" parent="."]
-texture = ExtResource("7_refp6")
-
 [node name="CraneBoom" type="Sprite2D" parent="."]
-position = Vector2(-51, -47)
+position = Vector2(-54, -37)
 texture = ExtResource("8_2dxia")
 offset = Vector2(-77, -49)
 
 [node name="CraneLine" type="Line2D" parent="."]
-position = Vector2(-218, -158)
+position = Vector2(-221, -151)
 points = PackedVector2Array(0, 0, 2.08165e-12, 215)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
@@ -48,18 +45,16 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="CraneWreckingBall" type="Sprite2D" parent="."]
-position = Vector2(-215, 56)
+position = Vector2(-221, 66)
 texture = ExtResource("11_rgrwk")
+
+[node name="CraneBody" type="Sprite2D" parent="."]
+texture = ExtResource("7_refp6")
 
 [node name="Yeti" type="Node2D" parent="."]
 
-[node name="ArmLeft" type="Sprite2D" parent="Yeti"]
-position = Vector2(37, 27)
-texture = ExtResource("1_wgrgd")
-offset = Vector2(-39, -7)
-
 [node name="ArmRight" type="Sprite2D" parent="Yeti"]
-position = Vector2(29, 9)
+position = Vector2(34, 9)
 texture = ExtResource("2_srefm")
 offset = Vector2(-28, -13)
 
@@ -69,10 +64,12 @@ texture = ExtResource("6_kxkc0")
 offset = Vector2(-32, 11)
 
 [node name="Body" type="Sprite2D" parent="Yeti"]
-position = Vector2(33, 27)
+position = Vector2(33, 56)
 texture = ExtResource("3_skvwv")
+offset = Vector2(0, -29)
 
 [node name="Head" type="Node2D" parent="Yeti"]
+position = Vector2(35, 0)
 
 [node name="HeadSad" type="Sprite2D" parent="Yeti/Head"]
 visible = false
@@ -81,9 +78,13 @@ texture = ExtResource("5_fybnk")
 offset = Vector2(-1, -21)
 
 [node name="HeadHappy" type="Sprite2D" parent="Yeti/Head"]
-position = Vector2(39, -1)
 texture = ExtResource("4_wqcy7")
 offset = Vector2(-1, -21)
+
+[node name="ArmLeft" type="Sprite2D" parent="Yeti"]
+position = Vector2(43, 13)
+texture = ExtResource("1_wgrgd")
+offset = Vector2(-39, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
