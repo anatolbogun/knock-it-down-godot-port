@@ -105,12 +105,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Smoother" type="Node" parent="."]
 script = ExtResource("9_fsder")
 
+[node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
+position = Vector2(1021, 461)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_description = "Added so that for project settings `display/window/stretch/aspect: expand` , the content remains centered."
 position = Vector2(683, 384)
-
-[node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
-position = Vector2(1021, 461)
 
 [connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="died" from="Control/Lives" to="." method="_on_lives_died"]

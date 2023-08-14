@@ -668,6 +668,7 @@ position = Vector2(1, -2)
 rest = Transform2D(1, 0, 0, 1, 1, -2)
 
 [node name="CraneBody" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
+z_index = 1
 texture = ExtResource("7_refp6")
 offset = Vector2(7, -105)
 
@@ -679,6 +680,7 @@ length = 46.746
 bone_angle = -72.787
 
 [node name="Yeti" type="Skeleton2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D"]
+z_index = 1
 
 [node name="BodyBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti"]
 position = Vector2(34, 65)
@@ -738,7 +740,6 @@ texture = ExtResource("4_wqcy7")
 offset = Vector2(-1, -21)
 
 [node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
-z_index = -1
 position = Vector2(-19, -143)
 rest = Transform2D(1, 0, 0, 1, -19, -143)
 
