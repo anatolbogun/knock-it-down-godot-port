@@ -54,35 +54,34 @@ texture = ExtResource("7_refp6")
 [node name="Yeti" type="Node2D" parent="."]
 
 [node name="ArmRight" type="Sprite2D" parent="Yeti"]
-position = Vector2(34, 9)
+position = Vector2(39, 24)
 texture = ExtResource("2_srefm")
 offset = Vector2(-28, -13)
 
 [node name="Leg" type="Sprite2D" parent="Yeti"]
-position = Vector2(36, 58)
+position = Vector2(36, 60)
 texture = ExtResource("6_kxkc0")
 offset = Vector2(-32, 11)
 
 [node name="Body" type="Sprite2D" parent="Yeti"]
-position = Vector2(33, 56)
+position = Vector2(34, 65)
 texture = ExtResource("3_skvwv")
 offset = Vector2(0, -29)
 
 [node name="Head" type="Node2D" parent="Yeti"]
-position = Vector2(35, 0)
+position = Vector2(36, 13)
 
 [node name="HeadSad" type="Sprite2D" parent="Yeti/Head"]
-visible = false
-position = Vector2(39, -1)
 texture = ExtResource("5_fybnk")
 offset = Vector2(-1, -21)
 
 [node name="HeadHappy" type="Sprite2D" parent="Yeti/Head"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("4_wqcy7")
 offset = Vector2(-1, -21)
 
 [node name="ArmLeft" type="Sprite2D" parent="Yeti"]
-position = Vector2(43, 13)
+position = Vector2(46, 27)
 texture = ExtResource("1_wgrgd")
 offset = Vector2(-39, -7)
 
