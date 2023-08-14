@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://ct5t57xx5b6fl"]
+
+[ext_resource type="Texture2D" uid="uid://bt0ofv2jeoquq" path="res://assets/spritesheets/yeti.sprites/yetiArm.tres" id="1_wgrgd"]
+[ext_resource type="Texture2D" uid="uid://besarymt365ip" path="res://assets/spritesheets/yeti.sprites/yetiArmRight.tres" id="2_srefm"]
+[ext_resource type="Texture2D" uid="uid://b4sed7mp4eu0b" path="res://assets/spritesheets/yeti.sprites/yetiBody.tres" id="3_skvwv"]
+[ext_resource type="Texture2D" uid="uid://d0shfu0yc0o34" path="res://assets/spritesheets/yeti.sprites/yetiHead.tres" id="4_wqcy7"]
+[ext_resource type="Texture2D" uid="uid://c23s8wmtaidl7" path="res://assets/spritesheets/yeti.sprites/yetiHeadSad.tres" id="5_fybnk"]
+[ext_resource type="Texture2D" uid="uid://ck2rv78ricnbq" path="res://assets/spritesheets/yeti.sprites/yetiLeg.tres" id="6_kxkc0"]
+[ext_resource type="Texture2D" uid="uid://o1so55s3i6b8" path="res://assets/spritesheets/yeti.sprites/craneBody.tres" id="7_refp6"]
+[ext_resource type="Texture2D" uid="uid://cjouyx2qghwe0" path="res://assets/spritesheets/yeti.sprites/craneBoom.tres" id="8_2dxia"]
+[ext_resource type="Texture2D" uid="uid://b7gkwtfohw4ig" path="res://assets/spritesheets/yeti.sprites/craneShadow.tres" id="9_qauxf"]
+[ext_resource type="Texture2D" uid="uid://clvsiq7t3oh5r" path="res://assets/spritesheets/yeti.sprites/craneWheels.tres" id="10_7y8f0"]
+[ext_resource type="Texture2D" uid="uid://ddwygwumuyavj" path="res://assets/spritesheets/yeti.sprites/craneWreckingBall.tres" id="11_rgrwk"]
+
+[sub_resource type="Animation" id="Animation_f0ly8"]
+resource_name = "break"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojgb1"]
+_data = {
+"break": SubResource("Animation_f0ly8")
+}
+
+[node name="Yeti" type="Node2D"]
+position = Vector2(27, -189)
+
+[node name="CraneShadow" type="Sprite2D" parent="."]
+position = Vector2(-34, 192)
+texture = ExtResource("9_qauxf")
+
+[node name="CraneWheels" type="Sprite2D" parent="."]
+position = Vector2(-26, 149)
+texture = ExtResource("10_7y8f0")
+
+[node name="CraneBody" type="Sprite2D" parent="."]
+texture = ExtResource("7_refp6")
+
+[node name="CraneBoom" type="Sprite2D" parent="."]
+position = Vector2(-51, -47)
+texture = ExtResource("8_2dxia")
+offset = Vector2(-77, -49)
+
+[node name="CraneLine" type="Line2D" parent="."]
+position = Vector2(-218, -158)
+points = PackedVector2Array(0, 0, 2.08165e-12, 215)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CraneWreckingBall" type="Sprite2D" parent="."]
+position = Vector2(-215, 56)
+texture = ExtResource("11_rgrwk")
+
+[node name="Yeti" type="Node2D" parent="."]
+
+[node name="ArmLeft" type="Sprite2D" parent="Yeti"]
+position = Vector2(37, 27)
+texture = ExtResource("1_wgrgd")
+offset = Vector2(-39, -7)
+
+[node name="ArmRight" type="Sprite2D" parent="Yeti"]
+position = Vector2(29, 9)
+texture = ExtResource("2_srefm")
+offset = Vector2(-28, -13)
+
+[node name="Leg" type="Sprite2D" parent="Yeti"]
+position = Vector2(36, 58)
+texture = ExtResource("6_kxkc0")
+offset = Vector2(-32, 11)
+
+[node name="Body" type="Sprite2D" parent="Yeti"]
+position = Vector2(33, 27)
+texture = ExtResource("3_skvwv")
+
+[node name="Head" type="Node2D" parent="Yeti"]
+
+[node name="HeadSad" type="Sprite2D" parent="Yeti/Head"]
+visible = false
+position = Vector2(39, -1)
+texture = ExtResource("5_fybnk")
+offset = Vector2(-1, -21)
+
+[node name="HeadHappy" type="Sprite2D" parent="Yeti/Head"]
+position = Vector2(39, -1)
+texture = ExtResource("4_wqcy7")
+offset = Vector2(-1, -21)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojgb1")
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=14 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://fofvecmcfug7" path="res://src/actors/lives.tscn" id="8_n8msl"]
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
 [ext_resource type="PackedScene" uid="uid://ex5k7hbpnm5c" path="res://src/actors/words.tscn" id="10_chyh8"]
+[ext_resource type="PackedScene" uid="uid://ct5t57xx5b6fl" path="res://src/actors/yeti.tscn" id="12_atv2d"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6o6bi"]
 
@@ -107,6 +108,9 @@ script = ExtResource("9_fsder")
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_description = "Added so that for project settings `display/window/stretch/aspect: expand` , the content remains centered."
 position = Vector2(683, 384)
+
+[node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
+position = Vector2(1021, 461)
 
 [connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="died" from="Control/Lives" to="." method="_on_lives_died"]
