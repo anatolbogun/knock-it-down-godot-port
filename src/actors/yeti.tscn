@@ -12,218 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://clvsiq7t3oh5r" path="res://assets/spritesheets/yeti.sprites/craneWheels.tres" id="10_7y8f0"]
 [ext_resource type="Texture2D" uid="uid://ddwygwumuyavj" path="res://assets/spritesheets/yeti.sprites/craneWreckingBall.tres" id="11_rgrwk"]
 
-[sub_resource type="Animation" id="Animation_f0ly8"]
-resource_name = "break"
-length = 1.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CraneWheelsBone2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CraneWheelsBone2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.233874, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D:rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.45, 0.55, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.350811, 0.0, 0.0785398, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D:rotation")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.45, 0.55, 0.8, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.932006, 0.0, -0.116937, 0.116937, -0.0401426, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D/CraneWreckingBallBone2D:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D:rotation")
-tracks/9/interp = 2
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.15708, 0.0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/LegBone2D:rotation")
-tracks/10/interp = 2
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.233874, 0.0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmLeftBone2D:rotation")
-tracks/11/interp = 2
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.155334, 0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmRightBone2D:rotation")
-tracks/12/interp = 2
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.0785398, 0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D:rotation")
-tracks/14/interp = 2
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.45, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.233874, 0.195477, 0.0]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D/HeadSad:visible")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D/HeadHappy:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_1i4nw"]
-resource_name = "success"
-
 [sub_resource type="Animation" id="Animation_6osnw"]
 length = 0.001
 tracks/0/type = "value"
@@ -323,8 +111,8 @@ tracks/7/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_0hj5h"]
-resource_name = "hit_correct"
+[sub_resource type="Animation" id="Animation_f0ly8"]
+resource_name = "break"
 length = 1.2
 step = 0.05
 tracks/0/type = "value"
@@ -334,10 +122,10 @@ tracks/0/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.45, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, -0.429351, -0.467748, 0.233874, 0.0]
+"values": [0.0, -0.233874, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -346,10 +134,10 @@ tracks/1/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D:rota
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.45, 0.55, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.274017, 0.544543, 0.0]
+"values": [0.0, -0.350811, 0.0, 0.0785398, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -358,10 +146,10 @@ tracks/2/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/Cran
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 0.8, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.45, 0.55, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.546288, 0.780162, -0.535816, 0.0785398, 0.0]
+"values": [0.0, 0.932006, 0.0, -0.116937, 0.116937, -0.0401426, 0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -370,10 +158,10 @@ tracks/3/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, -0.488692, 0.253073, 0.0]
+"values": [0.0, -0.15708, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -382,10 +170,10 @@ tracks/4/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.623083, 0.115192, 0.0]
+"values": [0.0, 0.233874, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -394,10 +182,10 @@ tracks/5/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.429351, -0.155334, 0.0]
+"values": [0.0, 0.155334, 0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -406,10 +194,10 @@ tracks/6/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.233874, 0.310669, 0.0]
+"values": [0.0, -0.0785398, 0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -418,10 +206,10 @@ tracks/7/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"times": PackedFloat32Array(0, 0.15, 0.45, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.274017, 0.427606, 0.0]
+"values": [0.0, -0.233874, 0.195477, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_kc1pq"]
@@ -631,8 +419,112 @@ tracks/16/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_0hj5h"]
+resource_name = "hit_correct"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.429351, -0.467748, 0.233874, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.274017, 0.544543, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.546288, 0.780162, -0.535816, 0.0785398, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.488692, 0.253073, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/LegBone2D:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.623083, 0.115192, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmLeftBone2D:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.429351, -0.155334, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmRightBone2D:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.233874, 0.310669, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.274017, 0.427606, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_1x54h"]
 resource_name = "incorrect"
+
+[sub_resource type="Animation" id="Animation_1i4nw"]
+resource_name = "success"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ojgb1"]
 _data = {
@@ -666,7 +558,6 @@ offset = Vector2(-18, 42)
 
 [node name="CraneBodyBone2D" type="Bone2D" parent="CraneWheelsBone2D"]
 position = Vector2(1, -2)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 1, -2)
 editor_settings/show_bone_gizmo = false
 
@@ -693,7 +584,6 @@ editor_settings/show_bone_gizmo = false
 
 [node name="LegBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
 position = Vector2(2, -5)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 2, -5)
 auto_calculate_length_and_angle = false
 length = 49.541
@@ -722,7 +612,6 @@ offset = Vector2(0, -29)
 
 [node name="ArmRightBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
 position = Vector2(5, -41)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 5, -41)
 auto_calculate_length_and_angle = false
 length = 60.721
@@ -752,7 +641,6 @@ offset = Vector2(-1, -21)
 
 [node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
 position = Vector2(-19, -143)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -19, -143)
 editor_settings/show_bone_gizmo = false
 
@@ -762,7 +650,6 @@ offset = Vector2(-77, -49)
 
 [node name="CraneLineBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 position = Vector2(-167, -114)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -167, -114)
 editor_settings/show_bone_gizmo = false
 
