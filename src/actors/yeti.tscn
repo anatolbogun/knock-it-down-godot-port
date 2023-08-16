@@ -44,7 +44,7 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D:rotation")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.45),
@@ -56,7 +56,7 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D:rotation")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.45, 0.55, 0.65),
@@ -68,7 +68,7 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D:rotation")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.45, 0.55, 0.8),
@@ -128,7 +128,7 @@ tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D:rotation")
-tracks/9/interp = 1
+tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.45),
@@ -140,7 +140,7 @@ tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/LegBone2D:rotation")
-tracks/10/interp = 1
+tracks/10/interp = 2
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.45),
@@ -152,7 +152,7 @@ tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmLeftBone2D:rotation")
-tracks/11/interp = 1
+tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.45),
@@ -164,7 +164,7 @@ tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmRightBone2D:rotation")
-tracks/12/interp = 1
+tracks/12/interp = 2
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.45),
@@ -188,7 +188,7 @@ tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D:rotation")
-tracks/14/interp = 1
+tracks/14/interp = 2
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.45, 0.75),
