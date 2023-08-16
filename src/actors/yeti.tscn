@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://ct5t57xx5b6fl"]
+[gd_scene load_steps=20 format=3 uid="uid://ct5t57xx5b6fl"]
 
+[ext_resource type="AudioStream" uid="uid://c417meakda3qt" path="res://assets/audio/sfx/yeti-win.mp3" id="1_n1vrr"]
 [ext_resource type="Texture2D" uid="uid://bt0ofv2jeoquq" path="res://assets/spritesheets/yeti.sprites/yetiArm.tres" id="1_wgrgd"]
 [ext_resource type="Texture2D" uid="uid://besarymt365ip" path="res://assets/spritesheets/yeti.sprites/yetiArmRight.tres" id="2_srefm"]
 [ext_resource type="Texture2D" uid="uid://b4sed7mp4eu0b" path="res://assets/spritesheets/yeti.sprites/yetiBody.tres" id="3_skvwv"]
@@ -528,6 +529,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_1i4nw"]
 resource_name = "success"
 length = 8.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -535,7 +537,7 @@ tracks/0/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.6, 2.3, 3, 3.7, 4.4, 5.1, 5.8, 6.8),
+"times": PackedFloat32Array(1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.624828, 0.389208, -0.624828, 0.389208, -0.624828, 0.389208, -0.624828, 0.389208, -0.624828, 0.0]
@@ -547,7 +549,7 @@ tracks/1/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D:rota
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.6, 2.3, 3, 3.7, 4.4, 5.1, 5.8, 6.8, 7.24678, 8),
+"times": PackedFloat32Array(1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25, 6.75, 7.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.155334, 0.507891, -0.155334, 0.507891, -0.155334, 0.507891, -0.155334, 0.507891, -0.155334, 0.0, -0.116937, 0.0]
@@ -559,10 +561,10 @@ tracks/2/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/Cran
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 1.2, 1.6, 1.6001, 2.6, 3, 3.0001, 4, 4.4, 4.4001, 5.4, 5.8, 5.8001, 6.9, 7.5, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.45, 1.75, 2.65, 2.6501, 3.7, 3.7001, 4.6, 4.6001, 5.6, 5.6001, 6.25, 6.95, 7.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.546288, 2.32129, 6.28319, 0.0, 3.14159, 6.28319, 0.0, 3.14159, 6.28319, 0.0, 3.14159, 6.28319, 0.0, 0.858702, -0.0767945, 0.0]
+"values": [0.0, -0.429351, 6.28319, 0.0, 6.28319, 0.0, 6.28319, 0.0, 6.28319, 0.0, 0.467748, 0.0785398, 0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -571,7 +573,7 @@ tracks/3/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.292106, 0.9, 1.6, 2.3, 3, 3.7, 4.4, 5.1, 5.8, 6.8, 8),
+"times": PackedFloat32Array(1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25, 7.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.467748, 0.211185, -0.467748, 0.211185, -0.467748, 0.211185, -0.467748, 0.211185, -0.467748, 0.211185, 0.0]
@@ -583,7 +585,7 @@ tracks/4/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.6, 2.3, 3, 3.7, 4.4, 5.1, 5.8, 6.8, 8),
+"times": PackedFloat32Array(1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25, 7.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.467748, 0.118682, 0.467748, 0.118682, 0.467748, 0.118682, 0.467748, 0.118682, 0.467748, 0.118682, 0.0]
@@ -595,7 +597,7 @@ tracks/5/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.6, 2.3, 3, 3.7, 4.4, 5.1, 5.8, 6.8, 8),
+"times": PackedFloat32Array(1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25, 7.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.429351, -0.188496, 0.429351, -0.188496, 0.429351, -0.188496, 0.429351, -0.188496, 0.429351, -0.188496, 0.0]
@@ -607,10 +609,37 @@ tracks/6/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/Body
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9, 1.6, 2.3, 3, 3.7, 4.4, 5.1, 5.8, 6.8, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25, 7.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.116937, 0.438078, -0.116937, 0.438078, -0.116937, 0.438078, -0.116937, 0.438078, -0.116937, 0.438078, 0.0]
+"values": [0.0, 0.558505, 0.0, -0.116937, 0.438078, -0.116937, 0.438078, -0.116937, 0.438078, -0.116937, 0.438078, -0.116937, 0.438078, 0.0]
+}
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_n1vrr")
+}],
+"times": PackedFloat32Array(-0.05)
+}
+tracks/7/use_blend = true
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.25, 1.45, 1.75, 2.15, 2.65, 3.2, 3.7, 4.15, 4.6, 5.1, 5.6, 6.25, 6.8, 7.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.624828, 0.0, -0.390954, 0.546288, -0.390954, 0.546288, -0.390954, 0.546288, -0.390954, 0.546288, -0.390954, 0.0, -0.195477, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ojgb1"]
@@ -624,6 +653,8 @@ _data = {
 }
 
 [node name="Yeti" type="Skeleton2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -737,6 +768,7 @@ offset = Vector2(-77, -49)
 
 [node name="CraneLineBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 position = Vector2(-167, -114)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -167, -114)
 editor_settings/show_bone_gizmo = false
 
