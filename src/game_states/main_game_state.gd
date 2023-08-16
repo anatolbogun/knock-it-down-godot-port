@@ -37,7 +37,8 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	is_game_over = false
-	await get_tree().create_timer(1).timeout
+
+func start() -> void:
 	play_sfx("ice-build")
 	await $Control/Words.show_items().finished
 	next_round()
@@ -113,3 +114,7 @@ func game_over() -> void:
 func _on_lives_died() -> void:
 	print("You died.")
 	is_game_over = true
+
+
+func _on_intro_panel_completed() -> void:
+	start()

@@ -1,22 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=15 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
 [ext_resource type="Texture2D" uid="uid://c0ddvcvytxmat" path="res://assets/images/landscape.png" id="2_eocjk"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
-[ext_resource type="Script" path="res://src/actors/HoverButton.gd" id="4_183qp"]
 [ext_resource type="Texture2D" uid="uid://cyra0owm460tb" path="res://assets/spritesheets/assets.sprites/buttonAudio.tres" id="5_47i7q"]
+[ext_resource type="Script" path="res://src/actors/hover_button.gd" id="5_y0mrj"]
 [ext_resource type="Texture2D" uid="uid://cbwung2jha00r" path="res://assets/spritesheets/assets.sprites/buttonAudioDown.tres" id="6_2nnj2"]
 [ext_resource type="PackedScene" uid="uid://cbi4jcb5fpp27" path="res://src/actors/rounds.tscn" id="7_0u8r4"]
 [ext_resource type="PackedScene" uid="uid://fofvecmcfug7" path="res://src/actors/lives.tscn" id="8_n8msl"]
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
 [ext_resource type="PackedScene" uid="uid://ex5k7hbpnm5c" path="res://src/actors/words.tscn" id="10_chyh8"]
 [ext_resource type="PackedScene" uid="uid://ct5t57xx5b6fl" path="res://src/actors/yeti.tscn" id="12_atv2d"]
+[ext_resource type="PackedScene" uid="uid://dmxe8qa2ongx" path="res://src/actors/intro_panel.tscn" id="13_jllth"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6o6bi"]
 
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
+
+[node name="Smoother" type="Node" parent="."]
+script = ExtResource("9_fsder")
 
 [node name="SFXStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamPolyphonic_6o6bi")
@@ -51,7 +55,7 @@ offset_top = 24.0
 offset_right = 84.0
 offset_bottom = 84.0
 texture_normal = ExtResource("3_33gha")
-script = ExtResource("4_183qp")
+script = ExtResource("5_y0mrj")
 hover_scale = 1.5
 
 [node name="AudioButton" type="TextureButton" parent="Control"]
@@ -62,7 +66,7 @@ offset_right = 955.0
 offset_bottom = 167.0
 texture_normal = ExtResource("5_47i7q")
 texture_pressed = ExtResource("6_2nnj2")
-script = ExtResource("4_183qp")
+script = ExtResource("5_y0mrj")
 
 [node name="Rounds" parent="Control" instance=ExtResource("7_0u8r4")]
 layout_mode = 1
@@ -102,9 +106,6 @@ texture = "res://assets/spritesheets/assets.sprites/iceBlock.tres"
 correct_texture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
 metadata/_edit_use_anchors_ = true
 
-[node name="Smoother" type="Node" parent="."]
-script = ExtResource("9_fsder")
-
 [node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
 position = Vector2(1021, 461)
 
@@ -112,6 +113,13 @@ position = Vector2(1021, 461)
 editor_description = "Added so that for project settings `display/window/stretch/aspect: expand` , the content remains centered."
 position = Vector2(683, 384)
 
+[node name="IntroPanel" parent="." instance=ExtResource("13_jllth")]
+visible = false
+offset_right = 1366.0
+offset_bottom = 768.0
+auto_show = null
+
 [connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="died" from="Control/Lives" to="." method="_on_lives_died"]
 [connection signal="word_clicked" from="Control/Words" to="." method="_on_words_word_clicked"]
+[connection signal="completed" from="IntroPanel" to="." method="_on_intro_panel_completed"]

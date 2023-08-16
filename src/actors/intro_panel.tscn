@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmxe8qa2ongx"]
+
+[ext_resource type="Script" path="res://src/actors/intro_panel.gd" id="1_0psek"]
+[ext_resource type="Texture2D" uid="uid://csroxt6cqsb6r" path="res://assets/images/title.png" id="2_m76ro"]
+[ext_resource type="FontFile" uid="uid://ch7jvbq3lb8qt" path="res://assets/fonts/kg-blank-space-solid.ttf" id="3_bcqk5"]
+[ext_resource type="Texture2D" uid="uid://b2ydasqrivehl" path="res://assets/spritesheets/common.sprites/buttonStart.tres" id="4_6lyex"]
+[ext_resource type="Texture2D" uid="uid://dhgf0u6o3men6" path="res://assets/spritesheets/common.sprites/buttonStartDown.tres" id="5_uu22r"]
+[ext_resource type="Script" path="res://src/actors/hover_button.gd" id="6_d3ylw"]
+
+[sub_resource type="Theme" id="Theme_xf53f"]
+Label/colors/font_color = Color(0.2, 0.45098, 0.796078, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.25098)
+Label/constants/outline_size = 8
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 4
+Label/constants/shadow_outline_size = 16
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("3_bcqk5")
+
+[node name="IntroPanel" type="VBoxContainer"]
+z_index = 100
+offset_right = 2039.0
+offset_bottom = 1460.0
+theme_override_constants/separation = 80
+alignment = 1
+script = ExtResource("1_0psek")
+title_image = "res://assets/images/title.png"
+description = "Find the word
+and knock it down."
+description_audio = null
+auto_show = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_m76ro")
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_xf53f")
+text = "Find the word
+and knock it down."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_6lyex")
+texture_pressed = ExtResource("5_uu22r")
+script = ExtResource("6_d3ylw")
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]

@@ -1,4 +1,4 @@
-extends TextureButton
+class_name HoverButton extends TextureButton
 
 @export var center_pivot: = true
 @export var hover_pointer: = true
