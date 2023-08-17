@@ -18,17 +18,15 @@ Label/font_sizes/font_size = 40
 Label/fonts/font = ExtResource("3_bcqk5")
 
 [node name="IntroPanel" type="VBoxContainer"]
-z_index = 100
-offset_right = 2039.0
-offset_bottom = 1460.0
+z_index = 1000
+offset_right = 1366.0
+offset_bottom = 768.0
 theme_override_constants/separation = 80
 alignment = 1
 script = ExtResource("1_0psek")
 title_image = "res://assets/images/title.png"
 description = "Find the word
 and knock it down."
-description_audio = null
-auto_show = null
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

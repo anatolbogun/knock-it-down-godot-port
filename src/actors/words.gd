@@ -19,6 +19,7 @@ signal word_clicked(word:String, button: TextureButton, label: Label)
 
 @export_file() var texture:String
 @export_file() var correct_texture:String
+@export var start_offset:Vector2 = Vector2(0, -683)
 
 var buttons:Array[TextureButton]
 
@@ -43,6 +44,10 @@ func reset() -> void:
 		button.texture_normal = load(texture) as Texture2D
 		button.texture_disabled = load(correct_texture) as Texture2D
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+		if !Engine.is_editor_hint():
+			button.modulate.a = 0
+
 		add_child(button)
 
 		var label: = Label.new()
@@ -86,6 +91,12 @@ func show_items() -> Tween:
 
 	for button in buttons:
 		var target_position = button.get_meta("target_position")
+
+		(
+			tween
+			.tween_property(button, "modulate:a", 1, 0.25)
+			.set_delay(i * stagger)
+		)
 
 		(
 			tween

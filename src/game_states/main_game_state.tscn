@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=16 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
-[ext_resource type="Texture2D" uid="uid://bojchfn36g6fm" path="res://assets/images/background.jpg" id="1_mw4vm"]
-[ext_resource type="Texture2D" uid="uid://c0ddvcvytxmat" path="res://assets/images/landscape.png" id="2_eocjk"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
+[ext_resource type="Texture2D" uid="uid://d260118w4jd71" path="res://assets/images/background-expanded.jpg" id="3_b8kmf"]
+[ext_resource type="Texture2D" uid="uid://dcyxs8qt3w5es" path="res://assets/images/landscape-expanded.png" id="4_yu0x2"]
 [ext_resource type="Texture2D" uid="uid://cyra0owm460tb" path="res://assets/spritesheets/assets.sprites/buttonAudio.tres" id="5_47i7q"]
 [ext_resource type="Script" path="res://src/actors/hover_button.gd" id="5_y0mrj"]
 [ext_resource type="Texture2D" uid="uid://cbwung2jha00r" path="res://assets/spritesheets/assets.sprites/buttonAudioDown.tres" id="6_2nnj2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
 [ext_resource type="PackedScene" uid="uid://ex5k7hbpnm5c" path="res://src/actors/words.tscn" id="10_chyh8"]
 [ext_resource type="PackedScene" uid="uid://ct5t57xx5b6fl" path="res://src/actors/yeti.tscn" id="12_atv2d"]
+[ext_resource type="Texture2D" uid="uid://b0ngw63h6ll0m" path="res://assets/images/background-mask-expanded.png" id="13_26bdg"]
 [ext_resource type="PackedScene" uid="uid://dmxe8qa2ongx" path="res://src/actors/intro_panel.tscn" id="13_jllth"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6o6bi"]
@@ -28,14 +29,14 @@ stream = SubResource("AudioStreamPolyphonic_6o6bi")
 [node name="NarratorStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_mw4vm")
-centered = false
-offset = Vector2(-50, -50)
+position = Vector2(683, 384)
+texture = ExtResource("3_b8kmf")
+metadata/_edit_lock_ = true
 
 [node name="Landscape" type="Sprite2D" parent="."]
-texture = ExtResource("2_eocjk")
-centered = false
-offset = Vector2(-50, -50)
+position = Vector2(683, 384)
+texture = ExtResource("4_yu0x2")
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -47,16 +48,7 @@ offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-
-[node name="BackButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 84.0
-offset_bottom = 84.0
-texture_normal = ExtResource("3_33gha")
-script = ExtResource("5_y0mrj")
-hover_scale = 1.5
+metadata/_edit_lock_ = true
 
 [node name="AudioButton" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -68,28 +60,6 @@ texture_normal = ExtResource("5_47i7q")
 texture_pressed = ExtResource("6_2nnj2")
 script = ExtResource("5_y0mrj")
 
-[node name="Rounds" parent="Control" instance=ExtResource("7_0u8r4")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -208.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = 88.0
-grow_horizontal = 0
-num_rounds = 9
-round_texture = "res://assets/spritesheets/common.sprites/counter_dot_2.tres"
-round_current_texture = "res://assets/spritesheets/common.sprites/counter_dot_3.tres"
-round_pass_texture = "res://assets/spritesheets/common.sprites/counter_dot_1.tres"
-
-[node name="Lives" parent="Control" instance=ExtResource("8_n8msl")]
-layout_mode = 1
-offset_top = -66.0
-offset_bottom = -16.0
-life_texture = "res://assets/spritesheets/lives.sprites/life.tres"
-death_texture = "res://assets/spritesheets/lives.sprites/death.tres"
-
 [node name="Words" parent="Control" instance=ExtResource("10_chyh8")]
 layout_mode = 1
 anchors_preset = -1
@@ -97,8 +67,6 @@ anchor_left = 0.216691
 anchor_top = 0.166667
 anchor_right = 0.216691
 anchor_bottom = 0.166667
-offset_right = 458.0
-offset_bottom = 452.0
 theme_override_constants/h_separation = -5
 theme_override_constants/v_separation = -5
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
@@ -109,17 +77,62 @@ metadata/_edit_use_anchors_ = true
 [node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
 position = Vector2(1021, 461)
 
+[node name="BackgroundMask" type="Sprite2D" parent="."]
+self_modulate = Color(0.513726, 0.419608, 0.713726, 1)
+z_index = 10
+position = Vector2(683, 384)
+texture = ExtResource("13_26bdg")
+metadata/_edit_lock_ = true
+
+[node name="CommonUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackButton" type="TextureButton" parent="CommonUi"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 84.0
+offset_bottom = 84.0
+texture_normal = ExtResource("3_33gha")
+script = ExtResource("5_y0mrj")
+hover_scale = 1.5
+
+[node name="Rounds" parent="CommonUi" instance=ExtResource("7_0u8r4")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1118.0
+offset_top = 8.0
+offset_right = 1318.0
+offset_bottom = 88.0
+grow_horizontal = 0
+num_rounds = 9
+round_texture = "res://assets/spritesheets/common.sprites/counter_dot_2.tres"
+round_current_texture = "res://assets/spritesheets/common.sprites/counter_dot_3.tres"
+round_pass_texture = "res://assets/spritesheets/common.sprites/counter_dot_1.tres"
+
+[node name="Lives" parent="CommonUi" instance=ExtResource("8_n8msl")]
+layout_mode = 1
+offset_left = 588.0
+offset_top = 662.0
+offset_right = 738.0
+offset_bottom = 712.0
+life_texture = "res://assets/spritesheets/lives.sprites/life.tres"
+death_texture = "res://assets/spritesheets/lives.sprites/death.tres"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_description = "Added so that for project settings `display/window/stretch/aspect: expand` , the content remains centered."
 position = Vector2(683, 384)
 
 [node name="IntroPanel" parent="." instance=ExtResource("13_jllth")]
 visible = false
-offset_right = 1366.0
-offset_bottom = 768.0
-auto_show = null
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
-[connection signal="died" from="Control/Lives" to="." method="_on_lives_died"]
 [connection signal="word_clicked" from="Control/Words" to="." method="_on_words_word_clicked"]
+[connection signal="died" from="CommonUi/Lives" to="." method="_on_lives_died"]
 [connection signal="completed" from="IntroPanel" to="." method="_on_intro_panel_completed"]
