@@ -19,7 +19,7 @@ signal word_clicked(word:String, button: TextureButton, label: Label)
 
 @export_file() var texture:String
 @export_file() var correct_texture:String
-@export var start_offset:Vector2 = Vector2(0, -683)
+@export var tween_offset:Vector2 = Vector2(0, -683)
 
 var buttons:Array[TextureButton]
 
@@ -70,7 +70,7 @@ func reset() -> void:
 				button.set_meta("target_position", button.position)
 
 				if !Engine.is_editor_hint():
-					button.position.y = button.position.y - get_viewport_rect().size.y
+					button.position += tween_offset
 	)
 
 func show_items() -> Tween:

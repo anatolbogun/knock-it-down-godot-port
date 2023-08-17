@@ -14,7 +14,6 @@ signal completed
 @export_file() var title_image:String
 @export_multiline var description:String
 @export_file() var description_audio:String
-@export var auto_show:bool = true
 
 
 func _ready() -> void:
@@ -26,8 +25,8 @@ func _ready() -> void:
 	$Title.texture = load(title_image) as Texture2D
 	$Description.text = description
 
-	if auto_show:
-		visible = true
+	# hide this in the editor by default
+	visible = !Engine.is_editor_hint()
 
 
 func _on_start_button_button_down() -> void:

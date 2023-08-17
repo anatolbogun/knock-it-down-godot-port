@@ -72,6 +72,7 @@ theme_override_constants/v_separation = -5
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
 texture = "res://assets/spritesheets/assets.sprites/iceBlock.tres"
 correct_texture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
+tween_offset = Vector2(0, -683)
 metadata/_edit_use_anchors_ = true
 
 [node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
