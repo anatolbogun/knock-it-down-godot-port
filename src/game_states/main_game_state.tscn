@@ -131,6 +131,8 @@ position = Vector2(683, 384)
 
 [node name="IntroPanel" parent="." instance=ExtResource("13_jllth")]
 visible = false
+description = "Find the word
+and knock it down."
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]

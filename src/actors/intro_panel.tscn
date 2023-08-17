@@ -25,8 +25,8 @@ theme_override_constants/separation = 80
 alignment = 1
 script = ExtResource("1_0psek")
 title_image = "res://assets/images/title.png"
-description = "Find the word
-and knock it down."
+description = "Enter description in the parent scene.
+(Intentional placeholder text.)"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -38,8 +38,6 @@ stretch_mode = 5
 [node name="Description" type="Label" parent="."]
 layout_mode = 2
 theme = SubResource("Theme_xf53f")
-text = "Find the word
-and knock it down."
 horizontal_alignment = 1
 vertical_alignment = 1
 
