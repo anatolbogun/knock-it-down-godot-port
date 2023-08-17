@@ -25,8 +25,8 @@ func _ready() -> void:
 	$Title.texture = load(title_image) as Texture2D
 	$Description.text = description
 
-	# hide this in the editor by default
-	visible = !Engine.is_editor_hint()
+	# hide this in the editor unless we open this scene file itself
+	visible = !owner || !Engine.is_editor_hint()
 
 
 func _on_start_button_button_down() -> void:
