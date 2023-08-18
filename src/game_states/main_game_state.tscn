@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=19 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
@@ -15,8 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://ct5t57xx5b6fl" path="res://src/actors/yeti.tscn" id="12_atv2d"]
 [ext_resource type="Texture2D" uid="uid://b0ngw63h6ll0m" path="res://assets/images/background-mask-expanded.png" id="13_26bdg"]
 [ext_resource type="PackedScene" uid="uid://dmxe8qa2ongx" path="res://src/actors/intro_panel.tscn" id="13_jllth"]
+[ext_resource type="Texture2D" uid="uid://2ksrbdqkujfe" path="res://assets/images/snow-particle.png" id="16_v5t0x"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6o6bi"]
+
+[sub_resource type="Gradient" id="Gradient_1yw73"]
+offsets = PackedFloat32Array(0, 0.115059, 0.861252, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
@@ -51,19 +56,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 metadata/_edit_lock_ = true
 
-[node name="AudioButton" type="TextureButton" parent="Ui"]
-layout_mode = 0
-offset_left = 845.0
-offset_top = 52.0
-offset_right = 955.0
-offset_bottom = 167.0
-pivot_offset = Vector2(55, 57.5)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_47i7q")
-texture_pressed = ExtResource("6_2nnj2")
-script = ExtResource("5_y0mrj")
-disabled_shader = ExtResource("8_x2xaa")
-
 [node name="Words" parent="Ui" instance=ExtResource("10_chyh8")]
 layout_mode = 1
 anchors_preset = -1
@@ -84,6 +76,24 @@ self_modulate = Color(0.513726, 0.419608, 0.713726, 1)
 z_index = 10
 position = Vector2(683, 384)
 texture = ExtResource("13_26bdg")
+metadata/_edit_lock_ = true
+
+[node name="SnowParticles" type="CPUParticles2D" parent="."]
+position = Vector2(783, -200)
+emitting = false
+amount = 100
+lifetime = 7.0
+preprocess = 7.0
+texture = ExtResource("16_v5t0x")
+emission_shape = 3
+emission_rect_extents = Vector2(783, 2.08165e-12)
+direction = Vector2(-0.3, 1)
+spread = 10.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 154.97
+initial_velocity_max = 160.82
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_1yw73")
 metadata/_edit_lock_ = true
 
 [node name="CommonUi" type="Control" parent="."]
@@ -124,6 +134,19 @@ offset_top = 662.0
 offset_right = 738.0
 offset_bottom = 712.0
 
+[node name="AudioButton" type="TextureButton" parent="CommonUi"]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 52.0
+offset_right = 955.0
+offset_bottom = 167.0
+pivot_offset = Vector2(55, 57.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_47i7q")
+texture_pressed = ExtResource("6_2nnj2")
+script = ExtResource("5_y0mrj")
+disabled_shader = ExtResource("8_x2xaa")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_description = "Added so that for project settings `display/window/stretch/aspect: expand` , the content remains centered."
 position = Vector2(683, 384)
@@ -134,7 +157,7 @@ description = "Find the word
 and knock it down."
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="Ui/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="word_clicked" from="Ui/Words" to="." method="_on_words_word_clicked"]
 [connection signal="died" from="CommonUi/Lives" to="." method="_on_lives_died"]
+[connection signal="pressed" from="CommonUi/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="completed" from="IntroPanel" to="." method="_on_intro_panel_completed"]

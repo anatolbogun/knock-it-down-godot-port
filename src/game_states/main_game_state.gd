@@ -18,6 +18,7 @@ extends Node2D
 var words:Array
 var target:Dictionary
 var is_game_over:bool
+var _yeti_position:Vector2
 
 
 func _enter_tree() -> void:
@@ -39,9 +40,34 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	is_game_over = false
+	_yeti_position = $Yeti.position
+
+	if !Engine.is_editor_hint():
+		$SnowParticles.emitting = true
+		$Yeti.visible = false
 
 
 func start() -> void:
+	$Yeti.position.x = get_viewport_rect().size.x + 500
+	$Yeti.visible = true
+	$Yeti/AnimationPlayer.play("drive")
+
+	var tween: = create_tween()
+
+	(
+		tween
+		.tween_property(
+			$Yeti,
+			"position:x",
+			_yeti_position.x,
+			$Yeti/AnimationPlayer.current_animation_length
+		)
+	)
+
+	await $Yeti/AnimationPlayer.animation_finished
+	$Yeti/AnimationPlayer.play("break")
+	await $Yeti/AnimationPlayer.animation_finished
+
 	play_sfx("ice-build")
 	await $Ui/Words.show_items().finished
 	next_round()
@@ -85,22 +111,31 @@ func _on_audio_button_pressed() -> void:
 	play_target_audio()
 
 
-func _on_words_word_clicked(word:String, button:TextureButton, label:Label) -> void:
+func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 	if is_game_over || !target.has("word"):
 		return
 
 	if word == target.word:
-		play_sfx(sample(["ice-break-1", "ice-break-2"]))
-		$Ui/Words.mark_correct(button)
-		label.queue_free()
-		$CommonUi/Rounds.pass_round()
+		correct(button)
 	else:
-		play_sfx("incorrect")
-		$CommonUi/Rounds.fail_round()
-		$CommonUi/Lives.remove_life()
+		incorrect()
 
 	if $CommonUi/Lives.lives_left > 0:
 		next_round()
+
+
+func correct(button:TextureButton) -> void:
+	play_sfx(sample(["ice-break-1", "ice-break-2"]))
+	$Yeti/AnimationPlayer.play("hit")
+	$Ui/Words.mark_correct(button)
+	$CommonUi/Rounds.pass_round()
+
+
+func incorrect() -> void:
+	play_sfx("incorrect")
+	$Yeti/AnimationPlayer.play("incorrect")
+	$CommonUi/Rounds.fail_round()
+	$CommonUi/Lives.remove_life()
 
 
 func next_round() -> void:
@@ -119,12 +154,16 @@ func next_round() -> void:
 func game_over() -> void:
 	print("Game over")
 	is_game_over = true
+	$Ui/Words.disabled = true
+	$CommonUi/AudioButton.disabled = true
 	play_sfx("ice-break-finish")
+	$Yeti/AnimationPlayer.play("success")
 
 
 func _on_lives_died() -> void:
 	print("You died.")
 	is_game_over = true
+	# TO DO: add failure animations for yeti and friends
 
 
 func _on_intro_panel_completed() -> void:

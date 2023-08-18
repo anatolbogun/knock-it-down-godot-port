@@ -1,11 +1,12 @@
 @tool # so that we see the words in the editor
 
+# Notes:
+# There's a nicer way to handle button hover mouse cursors and possibly hover label colours with a
+# common Button class that handles this with _set to observe the disabled state.
+
 extends GridContainer
 
-# It might be better to change the texture not via the disabled texture because then we can't
-# disable any button without a visual change.
-
-signal word_clicked(word:String, button: TextureButton, label: Label)
+signal word_clicked(word:String, button: TextureButton)
 
 @export var words: Array[String] :
 	set (value):
@@ -20,17 +21,21 @@ signal word_clicked(word:String, button: TextureButton, label: Label)
 @export var texture:Texture2D
 @export var correct_texture:Texture2D
 @export var tween_offset:Vector2 = Vector2(0, -683)
+@export var hover_audio:AudioStream
 
 var buttons:Array[TextureButton]
 
-# _set is only called if properties are changed from the outside
-#func _set(property: StringName, value: Variant) -> bool:
-	#match property:
-		#"disabled":
-			#if value == true:
-				#button.mouse_default_cursor_shape = Control.CURSOR_ARROW
-#
-	#return false # false: property is handled normally; true: property processing stops
+var disabled:bool = false :
+	set(value):
+		for button in buttons:
+			button.disabled = value || button.texture_normal != correct_texture
+
+			if button.disabled:
+				button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+
+
+func _ready() -> void:
+	$AudioStreamPlayer.stream = hover_audio
 
 
 func _enter_tree() -> void:
@@ -42,7 +47,8 @@ func reset() -> void:
 		return
 
 	for child in get_children():
-		child.queue_free()
+		if child is Control:
+			child.queue_free()
 
 	var _words = words.duplicate()
 	buttons.clear()
@@ -68,6 +74,11 @@ func reset() -> void:
 		button.add_child(label)
 
 		button.mouse_entered.connect(func () -> void:
+			if button.disabled:
+				return
+
+			$AudioStreamPlayer.play()
+
 			label.add_theme_color_override(
 				"font_color",
 				theme.get_color("font_hover_color", "Label")
@@ -78,7 +89,7 @@ func reset() -> void:
 			label.remove_theme_color_override("font_color")
 		)
 
-		button.pressed.connect(func () -> void: word_clicked.emit(word, button, label))
+		button.pressed.connect(func () -> void: word_clicked.emit(word, button))
 
 		buttons.push_back(button)
 
@@ -98,9 +109,10 @@ func reset() -> void:
 func mark_correct(button:TextureButton) -> void:
 	button.disabled = true
 	button.texture_normal = correct_texture
-
-	# I'd prefer a common Button class that handles cursors with _set to observe the disabled state
 	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+
+	for child in button.get_children():
+		child.queue_free()
 
 
 func show_items() -> Tween:

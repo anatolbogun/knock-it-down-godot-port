@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ex5k7hbpnm5c"]
+[gd_scene load_steps=6 format=3 uid="uid://ex5k7hbpnm5c"]
 
 [ext_resource type="Script" path="res://src/actors/words.gd" id="1_nvaax"]
 [ext_resource type="Theme" uid="uid://dugr7pfmmqfrb" path="res://src/themes/theme.tres" id="3_ericr"]
 [ext_resource type="Texture2D" uid="uid://cpdvqojy5ud6p" path="res://assets/spritesheets/assets.sprites/iceBlock.tres" id="3_vsshm"]
 [ext_resource type="Texture2D" uid="uid://dmi3t2sqcgyqc" path="res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres" id="4_vjcpi"]
+[ext_resource type="AudioStream" uid="uid://bd642qmo45xpc" path="res://assets/audio/sfx/hover.mp3" id="5_gdut3"]
 
 [node name="Words" type="GridContainer"]
 offset_right = 40.0
@@ -13,3 +14,6 @@ columns = 3
 script = ExtResource("1_nvaax")
 texture = ExtResource("3_vsshm")
 correct_texture = ExtResource("4_vjcpi")
+hover_audio = ExtResource("5_gdut3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
