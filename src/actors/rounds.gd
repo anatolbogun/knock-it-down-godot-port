@@ -11,9 +11,12 @@ signal round_completed(passed: bool)
 		num_rounds = value
 		reset()
 
-@export_file() var round_texture:String
-@export_file() var round_current_texture:String
-@export_file() var round_pass_texture:String
+#@export_file() var round_texture:String
+@export var round_texture:Texture2D
+#@export_file() var round_current_texture:String
+@export var round_current_texture:Texture2D
+#@export_file() var round_pass_texture:String
+@export var round_pass_texture:Texture2D
 
 ## returns the index of the current round (zero-indexed)
 var current_round:int :
@@ -31,8 +34,10 @@ const STATUS_INCOMPLETE:int = 0
 const STATUS_PASSED:int = 1
 const STATUS_FAILED:int = 2
 
+
 func _enter_tree() -> void:
 	reset()
+
 
 func _all_completed() -> void:
 	all_completed.emit(
@@ -40,6 +45,7 @@ func _all_completed() -> void:
 		get_children().filter(func (child:Node) -> bool: return child.get_meta("status") == STATUS_PASSED).size(),
 		get_children().filter(func (child:Node) -> bool: return child.get_meta("status") == STATUS_FAILED).size(),
 	)
+
 
 func reset() -> void:
 	if !is_inside_tree():
@@ -51,8 +57,9 @@ func reset() -> void:
 	for num_round in num_rounds:
 		var _round: = TextureRect.new()
 		_round.set_meta("status", STATUS_INCOMPLETE)
-		_round.texture = load(round_current_texture if num_round == 0 else round_texture) as Texture2D
+		_round.texture = round_current_texture if num_round == 0 else round_texture
 		add_child(_round)
+
 
 func next_round(passed:bool) -> void:
 	var incomplete_rounds:Array[Node] = get_children().filter(
@@ -66,20 +73,22 @@ func next_round(passed:bool) -> void:
 
 	if passed:
 		_round.set_meta("status", STATUS_PASSED)
-		_round.texture = load(round_pass_texture) as Texture2D
+		_round.texture = round_pass_texture
 	else:
 		_round.set_meta("status", STATUS_FAILED)
-		_round.texture = load(round_texture) as Texture2D
+		_round.texture = round_texture
 
 	round_completed.emit(passed)
 
 	if incomplete_rounds.size() > 1:
-		incomplete_rounds[1].texture = load(round_current_texture) as Texture2D
+		incomplete_rounds[1].texture = round_current_texture
 	else:
 		_all_completed()
 
+
 func pass_round() -> void:
 	next_round(true)
+
 
 func fail_round() -> void:
 	next_round(false)

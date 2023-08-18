@@ -4,6 +4,7 @@
 
 [resource]
 Label/colors/font_color = Color(1, 0.4, 0.6, 1)
+Label/colors/font_hover_color = Color(1, 0.619608, 0, 1)
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/constants/outline_size = 10
 Label/font_sizes/font_size = 48

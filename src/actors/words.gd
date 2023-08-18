@@ -17,14 +17,25 @@ signal word_clicked(word:String, button: TextureButton, label: Label)
 		shuffle = value
 		reset()
 
-@export_file() var texture:String
-@export_file() var correct_texture:String
+@export var texture:Texture2D
+@export var correct_texture:Texture2D
 @export var tween_offset:Vector2 = Vector2(0, -683)
 
 var buttons:Array[TextureButton]
 
+# _set is only called if properties are changed from the outside
+#func _set(property: StringName, value: Variant) -> bool:
+	#match property:
+		#"disabled":
+			#if value == true:
+				#button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+#
+	#return false # false: property is handled normally; true: property processing stops
+
+
 func _enter_tree() -> void:
 	reset()
+
 
 func reset() -> void:
 	if !is_inside_tree():
@@ -41,8 +52,7 @@ func reset() -> void:
 
 	for word in _words:
 		var button: = TextureButton.new()
-		button.texture_normal = load(texture) as Texture2D
-		button.texture_disabled = load(correct_texture) as Texture2D
+		button.texture_normal = texture
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 		if !Engine.is_editor_hint():
@@ -56,6 +66,17 @@ func reset() -> void:
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label.text = word
 		button.add_child(label)
+
+		button.mouse_entered.connect(func () -> void:
+			label.add_theme_color_override(
+				"font_color",
+				theme.get_color("font_hover_color", "Label")
+			)
+		)
+
+		button.mouse_exited.connect(func () -> void:
+			label.remove_theme_color_override("font_color")
+		)
 
 		button.pressed.connect(func () -> void: word_clicked.emit(word, button, label))
 
@@ -72,6 +93,15 @@ func reset() -> void:
 				if !Engine.is_editor_hint():
 					button.position += tween_offset
 	)
+
+
+func mark_correct(button:TextureButton) -> void:
+	button.disabled = true
+	button.texture_normal = correct_texture
+
+	# I'd prefer a common Button class that handles cursors with _set to observe the disabled state
+	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+
 
 func show_items() -> Tween:
 	var tween: = (

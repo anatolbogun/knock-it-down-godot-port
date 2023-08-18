@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://fofvecmcfug7"]
+[gd_scene load_steps=4 format=3 uid="uid://fofvecmcfug7"]
 
 [ext_resource type="Script" path="res://src/actors/lives.gd" id="1_bfufw"]
+[ext_resource type="Texture2D" uid="uid://crsgclfle4ss5" path="res://assets/spritesheets/lives.sprites/life.tres" id="2_fkiwk"]
+[ext_resource type="Texture2D" uid="uid://c7y2c1dxthkfe" path="res://assets/spritesheets/lives.sprites/death.tres" id="3_q85bw"]
 
 [node name="Lives" type="HFlowContainer"]
 anchors_preset = 7
@@ -15,3 +17,5 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 script = ExtResource("1_bfufw")
+life_texture = ExtResource("2_fkiwk")
+death_texture = ExtResource("3_q85bw")

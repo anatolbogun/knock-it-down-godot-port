@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=17 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cbwung2jha00r" path="res://assets/spritesheets/assets.sprites/buttonAudioDown.tres" id="6_2nnj2"]
 [ext_resource type="PackedScene" uid="uid://cbi4jcb5fpp27" path="res://src/actors/rounds.tscn" id="7_0u8r4"]
 [ext_resource type="PackedScene" uid="uid://fofvecmcfug7" path="res://src/actors/lives.tscn" id="8_n8msl"]
+[ext_resource type="Shader" path="res://src/shaders/grayscale.gdshader" id="8_x2xaa"]
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
 [ext_resource type="PackedScene" uid="uid://ex5k7hbpnm5c" path="res://src/actors/words.tscn" id="10_chyh8"]
 [ext_resource type="PackedScene" uid="uid://ct5t57xx5b6fl" path="res://src/actors/yeti.tscn" id="12_atv2d"]
@@ -38,7 +39,7 @@ position = Vector2(683, 384)
 texture = ExtResource("4_yu0x2")
 metadata/_edit_lock_ = true
 
-[node name="Control" type="Control" parent="."]
+[node name="Ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,17 +51,20 @@ grow_vertical = 2
 size_flags_horizontal = 4
 metadata/_edit_lock_ = true
 
-[node name="AudioButton" type="TextureButton" parent="Control"]
+[node name="AudioButton" type="TextureButton" parent="Ui"]
 layout_mode = 0
 offset_left = 845.0
 offset_top = 52.0
 offset_right = 955.0
 offset_bottom = 167.0
+pivot_offset = Vector2(55, 57.5)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_47i7q")
 texture_pressed = ExtResource("6_2nnj2")
 script = ExtResource("5_y0mrj")
+disabled_shader = ExtResource("8_x2xaa")
 
-[node name="Words" parent="Control" instance=ExtResource("10_chyh8")]
+[node name="Words" parent="Ui" instance=ExtResource("10_chyh8")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.216691
@@ -70,9 +74,6 @@ anchor_bottom = 0.166667
 theme_override_constants/h_separation = -5
 theme_override_constants/v_separation = -5
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
-texture = "res://assets/spritesheets/assets.sprites/iceBlock.tres"
-correct_texture = "res://assets/spritesheets/assets.sprites/iceBlockDestroyed.tres"
-tween_offset = Vector2(0, -683)
 metadata/_edit_use_anchors_ = true
 
 [node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
@@ -97,9 +98,12 @@ offset_left = 24.0
 offset_top = 24.0
 offset_right = 84.0
 offset_bottom = 84.0
+pivot_offset = Vector2(30, 30)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_33gha")
 script = ExtResource("5_y0mrj")
 hover_scale = 1.5
+disabled_shader = ExtResource("8_x2xaa")
 
 [node name="Rounds" parent="CommonUi" instance=ExtResource("7_0u8r4")]
 layout_mode = 1
@@ -112,9 +116,6 @@ offset_right = 1318.0
 offset_bottom = 88.0
 grow_horizontal = 0
 num_rounds = 9
-round_texture = "res://assets/spritesheets/common.sprites/counter_dot_2.tres"
-round_current_texture = "res://assets/spritesheets/common.sprites/counter_dot_3.tres"
-round_pass_texture = "res://assets/spritesheets/common.sprites/counter_dot_1.tres"
 
 [node name="Lives" parent="CommonUi" instance=ExtResource("8_n8msl")]
 layout_mode = 1
@@ -122,8 +123,6 @@ offset_left = 588.0
 offset_top = 662.0
 offset_right = 738.0
 offset_bottom = 712.0
-life_texture = "res://assets/spritesheets/lives.sprites/life.tres"
-death_texture = "res://assets/spritesheets/lives.sprites/death.tres"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_description = "Added so that for project settings `display/window/stretch/aspect: expand` , the content remains centered."
@@ -135,7 +134,7 @@ description = "Find the word
 and knock it down."
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="Control/AudioButton" to="." method="_on_audio_button_pressed"]
-[connection signal="word_clicked" from="Control/Words" to="." method="_on_words_word_clicked"]
+[connection signal="pressed" from="Ui/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="word_clicked" from="Ui/Words" to="." method="_on_words_word_clicked"]
 [connection signal="died" from="CommonUi/Lives" to="." method="_on_lives_died"]
 [connection signal="completed" from="IntroPanel" to="." method="_on_intro_panel_completed"]

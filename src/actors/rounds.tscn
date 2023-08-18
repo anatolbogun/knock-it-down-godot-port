@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbi4jcb5fpp27"]
+[gd_scene load_steps=5 format=3 uid="uid://cbi4jcb5fpp27"]
 
 [ext_resource type="Script" path="res://src/actors/rounds.gd" id="1_jfetc"]
+[ext_resource type="Texture2D" uid="uid://dg2ducnan3grv" path="res://assets/spritesheets/common.sprites/counter_dot_2.tres" id="2_bqg5m"]
+[ext_resource type="Texture2D" uid="uid://cact6pxn74pfx" path="res://assets/spritesheets/common.sprites/counter_dot_3.tres" id="3_qw3y2"]
+[ext_resource type="Texture2D" uid="uid://dfbcobr48ak2u" path="res://assets/spritesheets/common.sprites/counter_dot_1.tres" id="4_4edb5"]
 
 [node name="Rounds" type="HFlowContainer"]
 offset_right = 200.0
 offset_bottom = 80.0
 alignment = 1
 script = ExtResource("1_jfetc")
-roundTexture = "res://assets/spritesheets/common.sprites/counter_dot_2.tres"
+round_texture = ExtResource("2_bqg5m")
+round_current_texture = ExtResource("3_qw3y2")
+round_pass_texture = ExtResource("4_4edb5")

@@ -19,8 +19,9 @@ var words:Array
 var target:Dictionary
 var is_game_over:bool
 
+
 func _enter_tree() -> void:
-	words = $Control/Words.words.map(func (word) -> Dictionary:
+	words = $Ui/Words.words.map(func (word) -> Dictionary:
 		return {
 			"word": word,
 			"audio_resource": load(
@@ -35,18 +36,22 @@ func _enter_tree() -> void:
 
 	words.shuffle()
 
+
 func _ready() -> void:
 	is_game_over = false
 
+
 func start() -> void:
 	play_sfx("ice-build")
-	await $Control/Words.show_items().finished
+	await $Ui/Words.show_items().finished
 	next_round()
+
 
 func play_target_audio() -> void:
 	if target:
 		$NarratorStreamPlayer.stream = target.audio_resource
 		$NarratorStreamPlayer.play()
+
 
 func play_sfx(key) -> AudioStreamPlayer:
 	var resource_path:String = "res://" + sfx_audio_path + key + sfx_audio_extension
@@ -71,11 +76,14 @@ func play_sfx(key) -> AudioStreamPlayer:
 
 	return $SFXStreamPlayer2D
 
+
 func sample(array:Array) -> Variant:
 	return array[randi() % array.size()]
 
+
 func _on_audio_button_pressed() -> void:
 	play_target_audio()
+
 
 func _on_words_word_clicked(word:String, button:TextureButton, label:Label) -> void:
 	if is_game_over || !target.has("word"):
@@ -83,16 +91,17 @@ func _on_words_word_clicked(word:String, button:TextureButton, label:Label) -> v
 
 	if word == target.word:
 		play_sfx(sample(["ice-break-1", "ice-break-2"]))
-		button.disabled = true
+		$Ui/Words.mark_correct(button)
 		label.queue_free()
-		$Control/Rounds.pass_round()
+		$CommonUi/Rounds.pass_round()
 	else:
 		play_sfx("incorrect")
-		$Control/Rounds.fail_round()
-		$Control/Lives.remove_life()
+		$CommonUi/Rounds.fail_round()
+		$CommonUi/Lives.remove_life()
 
-	if $Control/Lives.lives_left > 0:
+	if $CommonUi/Lives.lives_left > 0:
 		next_round()
+
 
 func next_round() -> void:
 	var next_word = words.pop_back()
@@ -106,10 +115,12 @@ func next_round() -> void:
 
 	play_target_audio()
 
+
 func game_over() -> void:
 	print("Game over")
 	is_game_over = true
 	play_sfx("ice-break-finish")
+
 
 func _on_lives_died() -> void:
 	print("You died.")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmxe8qa2ongx"]
+[gd_scene load_steps=11 format=3 uid="uid://dmxe8qa2ongx"]
 
 [ext_resource type="Script" path="res://src/actors/intro_panel.gd" id="1_0psek"]
+[ext_resource type="AudioStream" uid="uid://bfymp8hut6usk" path="res://assets/audio/narrator/knock_it_down.mp3" id="2_kbggj"]
 [ext_resource type="Texture2D" uid="uid://csroxt6cqsb6r" path="res://assets/images/title.png" id="2_m76ro"]
 [ext_resource type="FontFile" uid="uid://ch7jvbq3lb8qt" path="res://assets/fonts/kg-blank-space-solid.ttf" id="3_bcqk5"]
+[ext_resource type="AudioStream" uid="uid://babsior21iyeb" path="res://assets/audio/narrator/find_the_word_and_knock_it_down.mp3" id="3_xy7ew"]
 [ext_resource type="Texture2D" uid="uid://b2ydasqrivehl" path="res://assets/spritesheets/common.sprites/buttonStart.tres" id="4_6lyex"]
+[ext_resource type="Shader" path="res://src/shaders/grayscale.gdshader" id="4_blxw4"]
 [ext_resource type="Texture2D" uid="uid://dhgf0u6o3men6" path="res://assets/spritesheets/common.sprites/buttonStartDown.tres" id="5_uu22r"]
 [ext_resource type="Script" path="res://src/actors/hover_button.gd" id="6_d3ylw"]
 
@@ -27,6 +30,8 @@ script = ExtResource("1_0psek")
 title_image = "res://assets/images/title.png"
 description = "Enter description in the parent scene.
 (Intentional placeholder text.)"
+title_audio = ExtResource("2_kbggj")
+description_audio = ExtResource("3_xy7ew")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -38,6 +43,8 @@ stretch_mode = 5
 [node name="Description" type="Label" parent="."]
 layout_mode = 2
 theme = SubResource("Theme_xf53f")
+text = "Enter description in the parent scene.
+(Intentional placeholder text.)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -45,8 +52,10 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_6lyex")
 texture_pressed = ExtResource("5_uu22r")
 script = ExtResource("6_d3ylw")
+disabled_shader = ExtResource("4_blxw4")
 
 [connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
