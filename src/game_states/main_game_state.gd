@@ -116,26 +116,28 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 		return
 
 	if word == target.word:
-		correct(button)
+		await correct(button)
 	else:
-		incorrect()
+		await incorrect()
 
 	if $CommonUi/Lives.lives_left > 0:
 		next_round()
 
 
-func correct(button:TextureButton) -> void:
+func correct(button:TextureButton) -> Signal:
 	play_sfx(sample(["ice-break-1", "ice-break-2"]))
-	$Yeti/AnimationPlayer.play("hit")
 	$Ui/Words.mark_correct(button)
 	$CommonUi/Rounds.pass_round()
+	$Yeti/AnimationPlayer.play("hit")
+	return $Yeti/AnimationPlayer.animation_finished
 
 
-func incorrect() -> void:
+func incorrect() -> Signal:
 	play_sfx("incorrect")
-	$Yeti/AnimationPlayer.play("incorrect")
 	$CommonUi/Rounds.fail_round()
 	$CommonUi/Lives.remove_life()
+	$Yeti/AnimationPlayer.play("incorrect")
+	return $Yeti/AnimationPlayer.animation_finished
 
 
 func next_round() -> void:
