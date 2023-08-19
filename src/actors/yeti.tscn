@@ -23,14 +23,15 @@
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_w6rks"]
 target_nodepath = NodePath("WreckingBallTarget")
+flip_bend_direction = true
 joint_one_bone_idx = 3
 joint_one_bone2d_node = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D")
 joint_two_bone_idx = 4
 joint_two_bone2d_node = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D")
-editor/draw_min_max = true
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_s563t"]
 enabled = true
+strength = 0.0
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_w6rks")
 
@@ -908,7 +909,6 @@ offset = Vector2(-1, -21)
 [node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
 position = Vector2(-19, -143)
 rest = Transform2D(1, 0, 0, 1, -19, -143)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="CraneBoom" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 texture = ExtResource("8_2dxia")
@@ -918,7 +918,6 @@ offset = Vector2(-77, -49)
 position = Vector2(-167, -114)
 rest = Transform2D(1, 0, 0, 1, -167, -114)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="CraneLineSprite2D" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D"]
 texture = ExtResource("19_0fwvi")
@@ -946,4 +945,4 @@ z_index = 1
 texture = ExtResource("11_rgrwk")
 
 [node name="WreckingBallTarget" type="Node2D" parent="."]
-position = Vector2(-662, -144)
+position = Vector2(-600, 2.08165e-12)
