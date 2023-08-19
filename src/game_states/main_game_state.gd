@@ -19,6 +19,8 @@ var words:Array
 var target:Dictionary
 var is_game_over:bool
 var _yeti_position:Vector2
+var _word_clicked:String
+var _button_clicked:TextureButton
 
 
 func _enter_tree() -> void:
@@ -46,8 +48,15 @@ func _ready() -> void:
 		$SnowParticles.emitting = true
 		$Yeti.visible = false
 
+	# start the activity in case there is no IntroPanel
+	if !$IntroPanel:
+		start()
+
 
 func start() -> void:
+	$Ui/Words.disabled = true
+	$CommonUi/AudioButton.disabled = true
+
 	$Yeti.position.x = get_viewport_rect().size.x + 500
 	$Yeti.visible = true
 	$Yeti/AnimationPlayer.play("drive")
@@ -73,10 +82,14 @@ func start() -> void:
 	next_round()
 
 
-func play_target_audio() -> void:
+func play_target_audio() -> Signal:
 	if target:
 		$NarratorStreamPlayer.stream = target.audio_resource
 		$NarratorStreamPlayer.play()
+		return $NarratorStreamPlayer.finished
+
+	# return a signal that is emitted immediately
+	return get_tree().create_timer(0).timeout
 
 
 func play_sfx(key) -> AudioStreamPlayer:
@@ -115,29 +128,34 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 	if is_game_over || !target.has("word"):
 		return
 
-	if word == target.word:
-		await correct(button)
-	else:
-		await incorrect()
+	$Ui/Words.disabled = true
+	$CommonUi/AudioButton.disabled = true
+
+	_word_clicked = word
+	_button_clicked = button
+
+	$Yeti/AnimationPlayer.play("hit")
+	await $Yeti/AnimationPlayer.animation_finished
+
+	var animation: = "correct" if word == target.word else "incorrect"
+
+	$Yeti/AnimationPlayer.play(animation)
+	await $Yeti/AnimationPlayer.animation_finished
 
 	if $CommonUi/Lives.lives_left > 0:
 		next_round()
 
 
-func correct(button:TextureButton) -> Signal:
+func hit_correct(button:TextureButton) -> void:
 	play_sfx(sample(["ice-break-1", "ice-break-2"]))
 	$Ui/Words.mark_correct(button)
 	$CommonUi/Rounds.pass_round()
-	$Yeti/AnimationPlayer.play("hit")
-	return $Yeti/AnimationPlayer.animation_finished
 
 
-func incorrect() -> Signal:
+func hit_incorrect() -> void:
 	play_sfx("incorrect")
 	$CommonUi/Rounds.fail_round()
 	$CommonUi/Lives.remove_life()
-	$Yeti/AnimationPlayer.play("incorrect")
-	return $Yeti/AnimationPlayer.animation_finished
 
 
 func next_round() -> void:
@@ -150,7 +168,10 @@ func next_round() -> void:
 	target = next_word
 	print("Target word: ", target.word)
 
-	play_target_audio()
+	await play_target_audio()
+
+	$Ui/Words.disabled = false
+	$CommonUi/AudioButton.disabled = false
 
 
 func game_over() -> void:
@@ -168,5 +189,8 @@ func _on_lives_died() -> void:
 	# TO DO: add failure animations for yeti and friends
 
 
-func _on_intro_panel_completed() -> void:
-	start()
+func _on_yeti_target_hit() -> void:
+	if _word_clicked == target.word:
+		hit_correct(_button_clicked)
+	else:
+		hit_incorrect()

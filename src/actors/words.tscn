@@ -17,3 +17,4 @@ correct_texture = ExtResource("4_vjcpi")
 hover_audio = ExtResource("5_gdut3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gdut3")

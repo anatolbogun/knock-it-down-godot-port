@@ -11,11 +11,8 @@ signal round_completed(passed: bool)
 		num_rounds = value
 		reset()
 
-#@export_file() var round_texture:String
 @export var round_texture:Texture2D
-#@export_file() var round_current_texture:String
 @export var round_current_texture:Texture2D
-#@export_file() var round_pass_texture:String
 @export var round_pass_texture:Texture2D
 
 ## returns the index of the current round (zero-indexed)

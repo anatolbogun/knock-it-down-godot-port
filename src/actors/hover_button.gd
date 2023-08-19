@@ -1,5 +1,8 @@
 @tool
 
+# Maybe there is a bug if the shader export has a default load() ?
+# For some reason that default gets loaded even if the shader was removed in the UI.
+
 class_name HoverButton extends TextureButton
 
 @export var center_pivot: = true

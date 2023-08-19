@@ -153,11 +153,12 @@ position = Vector2(683, 384)
 
 [node name="IntroPanel" parent="." instance=ExtResource("13_jllth")]
 visible = false
-description = "Find the word
-and knock it down."
-metadata/_edit_lock_ = true
+description = "Find the word and
+knock it down."
+skip = true
 
 [connection signal="word_clicked" from="Ui/Words" to="." method="_on_words_word_clicked"]
+[connection signal="target_hit" from="Yeti" to="." method="_on_yeti_target_hit"]
 [connection signal="died" from="CommonUi/Lives" to="." method="_on_lives_died"]
 [connection signal="pressed" from="CommonUi/AudioButton" to="." method="_on_audio_button_pressed"]
-[connection signal="completed" from="IntroPanel" to="." method="_on_intro_panel_completed"]
+[connection signal="completed" from="IntroPanel" to="." method="start"]

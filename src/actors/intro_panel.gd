@@ -1,8 +1,7 @@
 @tool
 
-# CONTINUE HERE
-# - Probably add an optional background color and texture rect.
-# - Find a way to disable or catch clicks.
+# Notes:
+# - Probably add an optional background color and texture rect (not required for this activity).
 
 extends VBoxContainer
 
@@ -12,9 +11,21 @@ signal completed
 @export_multiline var description:String
 @export var title_audio: AudioStream
 @export var description_audio: AudioStream
+## intended for development
+@export var skip: bool = false
 
 
 func _ready() -> void:
+	if skip:
+		await get_tree().get_current_scene().ready
+		completed.emit()
+
+		# don't delete this node in the editor
+		if !Engine.is_editor_hint():
+			queue_free()
+
+		return
+
 	# hide this in the editor unless we open this scene file itself
 	visible = !owner || !Engine.is_editor_hint()
 

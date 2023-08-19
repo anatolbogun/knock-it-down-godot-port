@@ -28,10 +28,12 @@ var buttons:Array[TextureButton]
 var disabled:bool = false :
 	set(value):
 		for button in buttons:
-			button.disabled = value || button.texture_normal != correct_texture
+			button.disabled = value || button.texture_normal == correct_texture
 
 			if button.disabled:
 				button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+			else:
+				button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 
 func _ready() -> void:
