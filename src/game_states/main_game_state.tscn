@@ -163,6 +163,7 @@ position = Vector2(683, 384)
 visible = false
 description = "Find the word and
 knock it down."
+skip = true
 
 [connection signal="word_clicked" from="Ui/Words" to="." method="_on_words_word_clicked"]
 [connection signal="target_hit" from="Yeti" to="." method="_on_yeti_target_hit"]
