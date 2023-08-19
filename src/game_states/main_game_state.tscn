@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=20 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
@@ -22,6 +22,9 @@
 [sub_resource type="Gradient" id="Gradient_1yw73"]
 offsets = PackedFloat32Array(0, 0.115059, 0.861252, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vgr1"]
+shader = ExtResource("8_x2xaa")
 
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
@@ -72,6 +75,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1021, 461)
 
 [node name="BackgroundMask" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(0.513726, 0.419608, 0.713726, 1)
 z_index = 10
 position = Vector2(683, 384)
@@ -79,6 +83,7 @@ texture = ExtResource("13_26bdg")
 metadata/_edit_lock_ = true
 
 [node name="SnowParticles" type="CPUParticles2D" parent="."]
+z_index = 1
 position = Vector2(783, -200)
 emitting = false
 amount = 100
@@ -97,6 +102,7 @@ color_ramp = SubResource("Gradient_1yw73")
 metadata/_edit_lock_ = true
 
 [node name="CommonUi" type="Control" parent="."]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -135,6 +141,7 @@ offset_right = 738.0
 offset_bottom = 712.0
 
 [node name="AudioButton" type="TextureButton" parent="CommonUi"]
+material = SubResource("ShaderMaterial_5vgr1")
 layout_mode = 0
 offset_left = 845.0
 offset_top = 52.0
@@ -142,6 +149,7 @@ offset_right = 955.0
 offset_bottom = 167.0
 pivot_offset = Vector2(55, 57.5)
 mouse_default_cursor_shape = 2
+disabled = true
 texture_normal = ExtResource("5_47i7q")
 texture_pressed = ExtResource("6_2nnj2")
 script = ExtResource("5_y0mrj")
@@ -155,7 +163,6 @@ position = Vector2(683, 384)
 visible = false
 description = "Find the word and
 knock it down."
-skip = true
 
 [connection signal="word_clicked" from="Ui/Words" to="." method="_on_words_word_clicked"]
 [connection signal="target_hit" from="Yeti" to="." method="_on_yeti_target_hit"]
