@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ct5t57xx5b6fl"]
+[gd_scene load_steps=33 format=3 uid="uid://ct5t57xx5b6fl"]
 
 [ext_resource type="AudioStream" uid="uid://dipllo0yfyng7" path="res://assets/audio/sfx/crane-stop.mp3" id="1_7wg0w"]
 [ext_resource type="Script" path="res://src/actors/yeti.gd" id="1_65b8r"]
@@ -19,6 +19,20 @@
 [ext_resource type="Texture2D" uid="uid://b7gkwtfohw4ig" path="res://assets/spritesheets/yeti.sprites/craneShadow.tres" id="9_qauxf"]
 [ext_resource type="Texture2D" uid="uid://clvsiq7t3oh5r" path="res://assets/spritesheets/yeti.sprites/craneWheels.tres" id="10_7y8f0"]
 [ext_resource type="Texture2D" uid="uid://ddwygwumuyavj" path="res://assets/spritesheets/yeti.sprites/craneWreckingBall.tres" id="11_rgrwk"]
+[ext_resource type="Texture2D" uid="uid://cnxpudhnr80cy" path="res://assets/spritesheets/yeti.sprites/craneRope.tres" id="19_0fwvi"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_w6rks"]
+target_nodepath = NodePath("WreckingBallTarget")
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D/CraneWreckingBallBone2D")
+editor/draw_min_max = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_s563t"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_w6rks")
 
 [sub_resource type="Animation" id="Animation_6osnw"]
 length = 0.001
@@ -177,6 +191,18 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D/CraneWreckingBallBone2D:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 217)]
 }
 
 [sub_resource type="Animation" id="Animation_f0ly8"]
@@ -752,6 +778,21 @@ tracks/8/keys = {
 "values": [0.0, 0.624828, 0.0, -0.390954, 0.546288, -0.390954, 0.546288, -0.390954, 0.546288, -0.390954, 0.546288, -0.390954, 0.0, -0.195477, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_yb3vo"]
+resource_name = "test"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D/CraneWreckingBallBone2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 217)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ojgb1"]
 _data = {
 "RESET": SubResource("Animation_6osnw"),
@@ -760,10 +801,12 @@ _data = {
 "drive": SubResource("Animation_5mu5p"),
 "hit": SubResource("Animation_0hj5h"),
 "incorrect": SubResource("Animation_1x54h"),
-"success": SubResource("Animation_1i4nw")
+"success": SubResource("Animation_1i4nw"),
+"test": SubResource("Animation_yb3vo")
 }
 
 [node name="Yeti" type="Skeleton2D"]
+modification_stack = SubResource("SkeletonModificationStack2D_s563t")
 script = ExtResource("1_65b8r")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -776,7 +819,6 @@ libraries = {
 [node name="CraneWheelsBone2D" type="Bone2D" parent="."]
 position = Vector2(-8, 107)
 rest = Transform2D(1, 0, 0, 1, -8, 107)
-editor_settings/show_bone_gizmo = false
 
 [node name="CraneShadow" type="Sprite2D" parent="CraneWheelsBone2D"]
 position = Vector2(-26, 85)
@@ -789,7 +831,6 @@ offset = Vector2(-18, 42)
 [node name="CraneBodyBone2D" type="Bone2D" parent="CraneWheelsBone2D"]
 position = Vector2(1, -2)
 rest = Transform2D(1, 0, 0, 1, 1, -2)
-editor_settings/show_bone_gizmo = false
 
 [node name="CraneBody" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
 z_index = 1
@@ -802,7 +843,6 @@ rest = Transform2D(1, 0, 0, 1, 7, -105)
 auto_calculate_length_and_angle = false
 length = 46.746
 bone_angle = -72.787
-editor_settings/show_bone_gizmo = false
 
 [node name="Yeti" type="Skeleton2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D"]
 z_index = 1
@@ -810,7 +850,6 @@ z_index = 1
 [node name="BodyBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti"]
 position = Vector2(34, 65)
 rest = Transform2D(1, 0, 0, 1, 34, 65)
-editor_settings/show_bone_gizmo = false
 
 [node name="LegBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
 position = Vector2(2, -5)
@@ -818,7 +857,6 @@ rest = Transform2D(1, 0, 0, 1, 2, -5)
 auto_calculate_length_and_angle = false
 length = 49.541
 bone_angle = -163.279
-editor_settings/show_bone_gizmo = false
 
 [node name="Leg" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/LegBone2D"]
 texture = ExtResource("6_kxkc0")
@@ -830,7 +868,6 @@ rest = Transform2D(1, 0, 0, 1, 12, -38)
 auto_calculate_length_and_angle = false
 length = 80.287
 bone_angle = 190.82
-editor_settings/show_bone_gizmo = false
 
 [node name="ArmLeft" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmLeftBone2D"]
 texture = ExtResource("1_wgrgd")
@@ -847,7 +884,6 @@ rest = Transform2D(1, 0, 0, 1, 5, -41)
 auto_calculate_length_and_angle = false
 length = 60.721
 bone_angle = 206.557
-editor_settings/show_bone_gizmo = false
 
 [node name="ArmRight" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/ArmRightBone2D"]
 texture = ExtResource("2_srefm")
@@ -859,7 +895,6 @@ rest = Transform2D(1, 0, 0, 1, 2, -52)
 auto_calculate_length_and_angle = false
 length = 46.746
 bone_angle = 283.279
-editor_settings/show_bone_gizmo = false
 
 [node name="HeadSad" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D/HeadBone2D"]
 visible = false
@@ -873,7 +908,6 @@ offset = Vector2(-1, -21)
 [node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
 position = Vector2(-19, -143)
 rest = Transform2D(1, 0, 0, 1, -19, -143)
-editor_settings/show_bone_gizmo = false
 
 [node name="CraneBoom" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 texture = ExtResource("8_2dxia")
@@ -883,9 +917,15 @@ offset = Vector2(-77, -49)
 position = Vector2(-167, -114)
 rest = Transform2D(1, 0, 0, 1, -167, -114)
 editor_settings/show_bone_gizmo = false
+metadata/_local_pose_override_enabled_ = true
+
+[node name="CraneLineSprite2D" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D"]
+texture = ExtResource("19_0fwvi")
+centered = false
 
 [node name="CraneLine" type="Line2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D"]
 z_index = 1
+scale = Vector2(1, 1)
 points = PackedVector2Array(0, 0, 2.08165e-12, 215)
 width = 3.0
 default_color = Color(0, 0, 0, 1)
@@ -894,12 +934,16 @@ end_cap_mode = 2
 
 [node name="CraneWreckingBallBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D"]
 position = Vector2(0, 217)
+scale = Vector2(0.999999, 1)
 rest = Transform2D(1, 0, 0, 1, 0, 217)
 auto_calculate_length_and_angle = false
-length = 38.361
-bone_angle = 88.524
-editor_settings/show_bone_gizmo = false
+length = 50.0
+bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="CraneWreckingBall" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D/CraneLineBone2D/CraneWreckingBallBone2D"]
 z_index = 1
 texture = ExtResource("11_rgrwk")
+
+[node name="WreckingBallTarget" type="Node2D" parent="."]
+position = Vector2(-673, 203)
