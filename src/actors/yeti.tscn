@@ -1077,8 +1077,8 @@ offset = Vector2(-18, 42)
 
 [node name="CraneBodyBone2D" type="Bone2D" parent="CraneWheelsBone2D"]
 position = Vector2(1, -2)
-scale = Vector2(0.999976, 0.999957)
-skew = -2.00272e-05
+scale = Vector2(0.999928, 0.999907)
+skew = -7.67708e-05
 rest = Transform2D(1, 0, 0, 1, 1, -2)
 
 [node name="CraneBody" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
@@ -1098,7 +1098,6 @@ z_index = 1
 
 [node name="BodyBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti"]
 position = Vector2(34, 65)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 34, 65)
 
 [node name="LegBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
@@ -1114,7 +1113,6 @@ offset = Vector2(-32, 11)
 
 [node name="ArmLeftBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
 position = Vector2(12, -38)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 12, -38)
 auto_calculate_length_and_angle = false
 length = 80.287
@@ -1142,7 +1140,6 @@ offset = Vector2(-28, -13)
 
 [node name="HeadBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/YetiBone2D/Yeti/BodyBone2D"]
 position = Vector2(2, -52)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 2, -52)
 auto_calculate_length_and_angle = false
 length = 46.746
@@ -1159,8 +1156,8 @@ offset = Vector2(-1, -21)
 
 [node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
 position = Vector2(-19, -143)
-scale = Vector2(0.999961, 0.999952)
-skew = -5.28097e-05
+scale = Vector2(0.999899, 0.999891)
+skew = -8.29697e-05
 rest = Transform2D(1, 0, 0, 1, -19, -143)
 
 [node name="CraneBoom" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
@@ -1169,8 +1166,8 @@ offset = Vector2(-77, -49)
 
 [node name="CraneLineBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 position = Vector2(-167, -114)
-scale = Vector2(0.999952, 0.999958)
-skew = -5.19753e-05
+scale = Vector2(0.999901, 0.999903)
+skew = -0.000101686
 rest = Transform2D(1, 0, 0, 1, -167, -114)
 editor_settings/show_bone_gizmo = false
 

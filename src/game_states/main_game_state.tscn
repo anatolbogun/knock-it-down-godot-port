@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=24 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://src/actors/hover_button.gd" id="5_y0mrj"]
 [ext_resource type="Texture2D" uid="uid://cbwung2jha00r" path="res://assets/spritesheets/assets.sprites/buttonAudioDown.tres" id="6_2nnj2"]
 [ext_resource type="PackedScene" uid="uid://cbi4jcb5fpp27" path="res://src/actors/rounds.tscn" id="7_0u8r4"]
+[ext_resource type="Texture2D" uid="uid://bp0ie2e508yc4" path="res://assets/spritesheets/furball_orange.sprites/body.tres" id="7_7tlto"]
+[ext_resource type="PackedScene" uid="uid://jjqmrww3e6nl" path="res://src/actors/furball.tscn" id="7_cxpv1"]
+[ext_resource type="Texture2D" uid="uid://dmucunpmpr5g7" path="res://assets/spritesheets/furball_green.sprites/body.tres" id="8_1sqr6"]
 [ext_resource type="PackedScene" uid="uid://fofvecmcfug7" path="res://src/actors/lives.tscn" id="8_n8msl"]
 [ext_resource type="Shader" path="res://src/shaders/grayscale.gdshader" id="8_x2xaa"]
 [ext_resource type="Script" path="res://src/classes/smoother.gd" id="9_fsder"]
@@ -76,7 +79,25 @@ theme_override_constants/v_separation = -5
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
 metadata/_edit_use_anchors_ = true
 
+[node name="FurballPurple" parent="." instance=ExtResource("7_cxpv1")]
+z_index = 1
+position = Vector2(654, 678)
+scale = Vector2(0.5, 0.5)
+
+[node name="FurballGreen" parent="." instance=ExtResource("7_cxpv1")]
+z_index = 1
+position = Vector2(525, 648)
+scale = Vector2(0.5, 0.5)
+body_texture = ExtResource("8_1sqr6")
+
+[node name="FurballOrange" parent="." instance=ExtResource("7_cxpv1")]
+z_index = 1
+position = Vector2(389, 659)
+scale = Vector2(0.5, 0.5)
+body_texture = ExtResource("7_7tlto")
+
 [node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
+z_index = 1
 position = Vector2(1021, 461)
 
 [node name="BackgroundMask" type="Sprite2D" parent="."]

@@ -1,0 +1,448 @@
+[gd_scene load_steps=19 format=3 uid="uid://jjqmrww3e6nl"]
+
+[ext_resource type="Texture2D" uid="uid://cibafvk5wl010" path="res://assets/spritesheets/furball_purple.sprites/body.tres" id="1_i7ujl"]
+[ext_resource type="Script" path="res://src/actors/furball.gd" id="1_mooyu"]
+[ext_resource type="Texture2D" uid="uid://iod1otwlteml" path="res://assets/spritesheets/furball_purple.sprites/earLeft.tres" id="2_ru1et"]
+[ext_resource type="AudioStream" uid="uid://bq3dbpw0hs5el" path="res://assets/audio/sfx/furball-incorrect.mp3" id="2_ue48f"]
+[ext_resource type="AudioStream" uid="uid://bsfpi0505vlaq" path="res://assets/audio/sfx/furball-laugh-1.mp3" id="2_vkjdm"]
+[ext_resource type="AudioStream" uid="uid://otm5eykg4cto" path="res://assets/audio/sfx/furball-laugh-2.mp3" id="3_5q0ls"]
+[ext_resource type="Texture2D" uid="uid://bd34p0ygotp26" path="res://assets/spritesheets/furball_purple.sprites/earRight.tres" id="3_q5e5w"]
+[ext_resource type="Texture2D" uid="uid://cq4t3rd5ho2pc" path="res://assets/spritesheets/furball_purple.sprites/eyes.tres" id="4_5dl74"]
+[ext_resource type="Texture2D" uid="uid://2x1ln45q1rye" path="res://assets/spritesheets/furball_purple.sprites/mouth.tres" id="5_wv624"]
+[ext_resource type="Texture2D" uid="uid://bx5dk5s1s74bq" path="res://assets/spritesheets/furball_purple.sprites/mouthSmile.tres" id="6_c3a3s"]
+[ext_resource type="Texture2D" uid="uid://i3wp53ipkrjg" path="res://assets/spritesheets/furball_purple.sprites/tail.tres" id="7_palax"]
+[ext_resource type="Texture2D" uid="uid://dms484pabc0j3" path="res://assets/spritesheets/furball_purple.sprites/tongue.tres" id="8_2pyyt"]
+
+[sub_resource type="Animation" id="Animation_6j7eo"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Eyes:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-103.5, -0.25, 0, 0.25, 0, -107.86, -0.25, 0, 0.25, 0, -103.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/EarLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.0959931, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/EarRight:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.127409, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Tail:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0628319, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_wjlgt"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Eyes:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-103.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/EarLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/EarRight:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Tail:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Mouth:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/MouthSmile:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/Tongue:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Body/Tongue:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-7.99998, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7qud6"]
+streams_count = 2
+stream_0/stream = ExtResource("2_vkjdm")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_5q0ls")
+stream_1/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_qqt1c"]
+resource_name = "jump"
+length = 1.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Eyes:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-103.5, -0.25, 0, 0.25, 0, -107.86, -0.25, 0, 0.25, 0, -103.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/EarLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.0959931, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/EarRight:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.127409, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Tail:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0628319, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0, -203.201, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.6, 1.1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.6, 1.1)
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_7qud6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/8/use_blend = true
+
+[sub_resource type="Animation" id="Animation_8fdxn"]
+resource_name = "laugh"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/MouthSmile:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Tongue:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Tongue:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0, -0.25, -0.25, 0, 0.25, 0, 0.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95)
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_ue48f")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xx4nl"]
+_data = {
+"RESET": SubResource("Animation_wjlgt"),
+"idle": SubResource("Animation_6j7eo"),
+"jump": SubResource("Animation_qqt1c"),
+"laugh": SubResource("Animation_8fdxn")
+}
+
+[node name="Furball" type="Node2D"]
+position = Vector2(1, 6.99998)
+script = ExtResource("1_mooyu")
+body_texture = ExtResource("1_i7ujl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xx4nl")
+}
+next/idle = &"idle"
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(-1, -7.99998)
+texture = ExtResource("1_i7ujl")
+offset = Vector2(-3, -80)
+
+[node name="EarLeft" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(-39, -130)
+texture = ExtResource("2_ru1et")
+offset = Vector2(-22, -46)
+
+[node name="EarRight" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(33, -139)
+texture = ExtResource("3_q5e5w")
+offset = Vector2(27, -30)
+
+[node name="Eyes" type="Sprite2D" parent="Body"]
+position = Vector2(19, -103.5)
+texture = ExtResource("4_5dl74")
+
+[node name="Mouth" type="Sprite2D" parent="Body"]
+position = Vector2(14, -103)
+texture = ExtResource("5_wv624")
+offset = Vector2(4, 44.5)
+
+[node name="MouthSmile" type="Sprite2D" parent="Body"]
+visible = false
+position = Vector2(19, -65.5)
+texture = ExtResource("6_c3a3s")
+
+[node name="Tail" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(-66, -30)
+texture = ExtResource("7_palax")
+offset = Vector2(-47, -32)
+
+[node name="Tongue" type="Sprite2D" parent="Body"]
+visible = false
+position = Vector2(54, -57.5)
+texture = ExtResource("8_2pyyt")
+offset = Vector2(14, -10)
+
+[node name="Shadow" type="Sprite2D" parent="Body"]
+position = Vector2(3, 3)

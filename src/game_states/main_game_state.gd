@@ -165,6 +165,9 @@ func correct(button:TextureButton) -> void:
 	play_sfx(sample(["ice-break-1", "ice-break-2"]))
 	$Ui/Words.mark_correct(button)
 	$CommonUi/Rounds.pass_round()
+	$FurballGreen.jump()
+	$FurballOrange.jump()
+	$FurballPurple.jump()
 
 
 func incorrect() -> void:
@@ -172,6 +175,7 @@ func incorrect() -> void:
 	$CommonUi/Rounds.fail_round()
 	$CommonUi/Lives.remove_life()
 
+	[$FurballGreen, $FurballOrange, $FurballPurple].pick_random().laugh()
 
 func next_round() -> void:
 	var next_word = words.pop_back()
