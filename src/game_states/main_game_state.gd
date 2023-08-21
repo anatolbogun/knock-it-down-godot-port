@@ -131,28 +131,41 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 	$Ui/Words.disabled = true
 	$CommonUi/AudioButton.disabled = true
 
-	_word_clicked = word
-	_button_clicked = button
-
-	$Yeti/AnimationPlayer.play("hit")
+	$Yeti/AnimationPlayer.play("retract")
 	await $Yeti/AnimationPlayer.animation_finished
+
+	$Yeti/WreckingBallTarget.global_position = button.global_position + button.size / 2
+
+	var tween: = create_tween()
+	tween.tween_property($Yeti.get_modification_stack(), "strength", 1, 0.125)
+	await tween.finished
+
+	if word == target.word:
+		correct(button)
+	else:
+		incorrect()
 
 	var animation: = "correct" if word == target.word else "incorrect"
 
 	$Yeti/AnimationPlayer.play(animation)
 	await $Yeti/AnimationPlayer.animation_finished
 
+	$Yeti/AnimationPlayer.play("RESET")
+
+	var tween2: = create_tween()
+	tween2.tween_property($Yeti.get_modification_stack(), "strength", 0, 0.5)
+
 	if $CommonUi/Lives.lives_left > 0:
 		next_round()
 
 
-func hit_correct(button:TextureButton) -> void:
+func correct(button:TextureButton) -> void:
 	play_sfx(sample(["ice-break-1", "ice-break-2"]))
 	$Ui/Words.mark_correct(button)
 	$CommonUi/Rounds.pass_round()
 
 
-func hit_incorrect() -> void:
+func incorrect() -> void:
 	play_sfx("incorrect")
 	$CommonUi/Rounds.fail_round()
 	$CommonUi/Lives.remove_life()
@@ -189,8 +202,13 @@ func _on_lives_died() -> void:
 	# TO DO: add failure animations for yeti and friends
 
 
-func _on_yeti_target_hit() -> void:
-	if _word_clicked == target.word:
-		hit_correct(_button_clicked)
-	else:
-		hit_incorrect()
+#func _on_yeti_target_hit() -> void:
+	#if _word_clicked == target.word:
+		#hit_correct(_button_clicked)
+	#else:
+		#hit_incorrect()
+
+
+#func _on_yeti_target_swing_start() -> void:
+	#$Yeti/WreckingBallTarget.global_position = _button_clicked.global_position + _button_clicked.size / 2
+	#$Yeti.get_modification_stack().strength = 1
