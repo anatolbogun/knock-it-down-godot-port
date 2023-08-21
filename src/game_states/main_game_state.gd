@@ -153,7 +153,8 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 
 	$Yeti/AnimationPlayer.play("RESET")
 
-	var tween2: = create_tween()
+	var tween2: = create_tween().set_parallel()
+	tween2.tween_property($Yeti/CraneWheelsBone2D/CraneBodyBone2D, "rotation", 0, 0.5)
 	tween2.tween_property($Yeti.get_modification_stack(), "strength", 0, 0.5)
 
 	if $CommonUi/Lives.lives_left > 0:

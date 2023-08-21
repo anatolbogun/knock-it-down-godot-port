@@ -1077,8 +1077,8 @@ offset = Vector2(-18, 42)
 
 [node name="CraneBodyBone2D" type="Bone2D" parent="CraneWheelsBone2D"]
 position = Vector2(1, -2)
-scale = Vector2(0.99998, 0.999967)
-skew = -1.57356e-05
+scale = Vector2(0.999976, 0.999957)
+skew = -2.00272e-05
 rest = Transform2D(1, 0, 0, 1, 1, -2)
 
 [node name="CraneBody" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
@@ -1159,8 +1159,8 @@ offset = Vector2(-1, -21)
 
 [node name="CraneBoomBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D"]
 position = Vector2(-19, -143)
-scale = Vector2(0.999961, 0.999956)
-skew = -4.49419e-05
+scale = Vector2(0.999961, 0.999952)
+skew = -5.28097e-05
 rest = Transform2D(1, 0, 0, 1, -19, -143)
 
 [node name="CraneBoom" type="Sprite2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
@@ -1169,8 +1169,8 @@ offset = Vector2(-77, -49)
 
 [node name="CraneLineBone2D" type="Bone2D" parent="CraneWheelsBone2D/CraneBodyBone2D/CraneBoomBone2D"]
 position = Vector2(-167, -114)
-scale = Vector2(0.999963, 0.999966)
-skew = -4.36306e-05
+scale = Vector2(0.999952, 0.999958)
+skew = -5.19753e-05
 rest = Transform2D(1, 0, 0, 1, -167, -114)
 editor_settings/show_bone_gizmo = false
 
