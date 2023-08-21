@@ -159,7 +159,7 @@ func hit_and_destroy() -> Signal:
 	var max_offset: = Vector2(200, -350)
 	var min_rotation: = -90.0
 	var max_rotation: = 90.0
-	var ground_position: = 400.0
+	var ground_position: = 300.0
 
 	var hit_tween: = (
 		create_tween()
@@ -183,7 +183,7 @@ func hit_and_destroy() -> Signal:
 		)
 
 	await hit_tween.finished
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.25).timeout
 
 	var fall_tween: = (
 		create_tween()

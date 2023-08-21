@@ -130,6 +130,21 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 	$CommonUi/AudioButton.disabled = true
 
 	$Yeti/AnimationPlayer.play("retract")
+
+	var move_distance:float = $Yeti.global_position.x - button.global_position.x - 500
+
+	var retract_tween: = create_tween()
+	(
+		retract_tween
+			.tween_property(
+				$Yeti,
+				"position:x",
+				-move_distance,
+				$Yeti/AnimationPlayer.current_animation_length,
+			)
+			.as_relative()
+	)
+
 	await $Yeti/AnimationPlayer.animation_finished
 
 	$Yeti/WreckingBallTarget.global_position = button.global_position + button.size / 2
@@ -151,6 +166,17 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 	$Yeti/AnimationPlayer.play(animation)
 	await $Yeti/AnimationPlayer.animation_finished
 
+	var reset_tween: = create_tween()
+	(
+		reset_tween.tween_property(
+				$Yeti,
+				"position:x",
+				move_distance,
+				$Yeti/AnimationPlayer.current_animation_length,
+			)
+			.as_relative()
+	)
+
 	$Yeti/AnimationPlayer.play("RESET")
 
 	var tween2: = create_tween().set_parallel()
@@ -165,9 +191,30 @@ func correct(button:TextureButton) -> void:
 	play_sfx(sample(["ice-break-1", "ice-break-2"]))
 	$Ui/Words.mark_correct(button)
 	$CommonUi/Rounds.pass_round()
+	screen_shake()
+	$LeftLedgeParticles.emitting = true
+	$RightLedgeParticles.emitting = true
 	$FurballGreen.jump()
 	$FurballOrange.jump()
 	$FurballPurple.jump()
+
+
+func screen_shake(max_amplitude:float = 50, duration:float = 0.5) -> void:
+	var original_offset:Vector2 = $Camera2D.offset
+
+	var shake_offset: = Vector2(
+		randi_range(-max_amplitude, max_amplitude),
+		randi_range(-max_amplitude, max_amplitude),
+	)
+
+	var tween: = create_tween()
+	(
+		tween
+			.tween_property($Camera2D, "offset", original_offset, duration)
+			.from(shake_offset)
+			.set_trans(Tween.TRANS_ELASTIC)
+			.set_ease(Tween.EASE_OUT)
+	)
 
 
 func incorrect() -> void:
