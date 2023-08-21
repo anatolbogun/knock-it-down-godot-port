@@ -62,6 +62,7 @@ func reset() -> void:
 		var button: = TextureButton.new()
 		button.texture_normal = texture
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		button.pivot_offset = button.size / 2
 
 		if !Engine.is_editor_hint():
 			button.modulate.a = 0
@@ -151,3 +152,47 @@ func show_items() -> Tween:
 		i += 1
 
 	return tween
+
+
+func hit_and_destroy() -> Signal:
+	var min_offset: = Vector2(-200, -250)
+	var max_offset: = Vector2(200, -350)
+	var min_rotation: = -90.0
+	var max_rotation: = 90.0
+	var ground_position: = 400.0
+
+	var hit_tween: = (
+		create_tween()
+			.set_parallel()
+			.set_ease(Tween.EASE_OUT)
+			.set_trans(Tween.TRANS_SINE)
+	)
+
+	for button in buttons:
+		var offset = Vector2(
+			randf_range(min_offset.x, max_offset.x),
+			randf_range(min_offset.y, max_offset.y),
+		)
+
+		hit_tween.tween_property(button, "position", offset, 0.25).as_relative()
+		hit_tween.tween_property(
+			button,
+			"rotation_degrees",
+			randf_range(min_rotation, max_rotation),
+			0.25,
+		)
+
+	await hit_tween.finished
+	await get_tree().create_timer(0.5).timeout
+
+	var fall_tween: = (
+		create_tween()
+			.set_parallel()
+			.set_ease(Tween.EASE_IN)
+			.set_trans(Tween.TRANS_SINE)
+	)
+
+	for button in buttons:
+		fall_tween.tween_property(button, "position:y", ground_position, 0.5)
+
+	return fall_tween.finished

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c050dnbmo0boi"]
+[gd_scene load_steps=21 format=3 uid="uid://c050dnbmo0boi"]
 
 [ext_resource type="Script" path="res://src/game_states/main_game_state.gd" id="1_cppd2"]
 [ext_resource type="Texture2D" uid="uid://qhx0qt55v3ip" path="res://assets/spritesheets/common.sprites/buttonBack.tres" id="3_33gha"]
@@ -22,6 +22,14 @@
 [sub_resource type="Gradient" id="Gradient_1yw73"]
 offsets = PackedFloat32Array(0, 0.115059, 0.861252, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_rni0i"]
+resource_name = "destroy_words"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrj66"]
+_data = {
+"destroy_words": SubResource("Animation_rni0i")
+}
 
 [node name="MainGameState" type="Node2D"]
 script = ExtResource("1_cppd2")
@@ -161,9 +169,12 @@ description = "Find the word and
 knock it down."
 skip = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yrj66")
+}
+
 [connection signal="word_clicked" from="Ui/Words" to="." method="_on_words_word_clicked"]
-[connection signal="target_hit" from="Yeti" to="." method="_on_yeti_target_hit"]
-[connection signal="target_swing_start" from="Yeti" to="." method="_on_yeti_target_swing_start"]
 [connection signal="died" from="CommonUi/Lives" to="." method="_on_lives_died"]
 [connection signal="pressed" from="CommonUi/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="completed" from="IntroPanel" to="." method="start"]

@@ -27,6 +27,10 @@ var current_round:int :
 
 		return get_children().find(incomplete_rounds.front())
 
+var rounds_left:int :
+	get:
+		return num_rounds - current_round if current_round != -1 else 0
+
 const STATUS_INCOMPLETE:int = 0
 const STATUS_PASSED:int = 1
 const STATUS_FAILED:int = 2

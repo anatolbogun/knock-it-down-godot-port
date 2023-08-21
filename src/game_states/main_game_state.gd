@@ -19,8 +19,6 @@ var words:Array
 var target:Dictionary
 var is_game_over:bool
 var _yeti_position:Vector2
-var _word_clicked:String
-var _button_clicked:TextureButton
 
 
 func _enter_tree() -> void:
@@ -147,6 +145,9 @@ func _on_words_word_clicked(word:String, button:TextureButton) -> void:
 
 	var animation: = "correct" if word == target.word else "incorrect"
 
+	if $CommonUi/Rounds.rounds_left == 0:
+		animation = "RESET"
+
 	$Yeti/AnimationPlayer.play(animation)
 	await $Yeti/AnimationPlayer.animation_finished
 
@@ -193,6 +194,8 @@ func game_over() -> void:
 	$Ui/Words.disabled = true
 	$CommonUi/AudioButton.disabled = true
 	play_sfx("ice-break-finish")
+
+	await $Ui/Words.hit_and_destroy()
 	$Yeti/AnimationPlayer.play("success")
 
 
@@ -200,15 +203,3 @@ func _on_lives_died() -> void:
 	print("You died.")
 	is_game_over = true
 	# TO DO: add failure animations for yeti and friends
-
-
-#func _on_yeti_target_hit() -> void:
-	#if _word_clicked == target.word:
-		#hit_correct(_button_clicked)
-	#else:
-		#hit_incorrect()
-
-
-#func _on_yeti_target_swing_start() -> void:
-	#$Yeti/WreckingBallTarget.global_position = _button_clicked.global_position + _button_clicked.size / 2
-	#$Yeti.get_modification_stack().strength = 1
