@@ -109,29 +109,28 @@ theme_override_constants/v_separation = -5
 words = Array[String](["and", "at", "did", "in", "it", "man", "sat", "the", "Tim"])
 metadata/_edit_use_anchors_ = true
 
-[node name="FurballPurple" parent="." instance=ExtResource("7_cxpv1")]
+[node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
 z_index = 1
+position = Vector2(1021, 461)
+
+[node name="FurballPurple" parent="." instance=ExtResource("7_cxpv1")]
+z_index = 10
 position = Vector2(654, 678)
 scale = Vector2(0.5, 0.5)
 
 [node name="FurballGreen" parent="." instance=ExtResource("7_cxpv1")]
-z_index = 1
+z_index = 10
 position = Vector2(525, 648)
 scale = Vector2(0.5, 0.5)
 body_texture = ExtResource("8_1sqr6")
 
 [node name="FurballOrange" parent="." instance=ExtResource("7_cxpv1")]
-z_index = 1
+z_index = 10
 position = Vector2(389, 659)
 scale = Vector2(0.5, 0.5)
 body_texture = ExtResource("7_7tlto")
 
-[node name="Yeti" parent="." instance=ExtResource("12_atv2d")]
-z_index = 1
-position = Vector2(1021, 461)
-
 [node name="BackgroundMask" type="Sprite2D" parent="."]
-visible = false
 self_modulate = Color(0.513726, 0.419608, 0.713726, 1)
 z_index = 10
 position = Vector2(683, 384)
@@ -139,7 +138,7 @@ texture = ExtResource("13_26bdg")
 metadata/_edit_lock_ = true
 
 [node name="SnowParticles" type="CPUParticles2D" parent="."]
-z_index = 1
+z_index = 20
 position = Vector2(783, -200)
 emitting = false
 amount = 100
@@ -158,7 +157,7 @@ color_ramp = SubResource("Gradient_1yw73")
 metadata/_edit_lock_ = true
 
 [node name="CommonUi" type="Control" parent="."]
-z_index = 2
+z_index = 21
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

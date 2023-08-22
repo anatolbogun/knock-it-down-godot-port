@@ -7,7 +7,9 @@ extends Node2D
 
 func _ready() -> void:
 	$Body.texture = body_texture
-	idle()
+
+	if !Engine.is_editor_hint():
+		idle()
 
 func idle() -> void:
 	await get_tree().create_timer(randf_range(0, 2)).timeout
